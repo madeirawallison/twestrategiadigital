@@ -1,1 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia dos 100 Ganchos — Tawana Madeira</title>
+<meta name="description" content="100 formas de prender a atenção nos primeiros 3 segundos e aumentar a retenção dos seus Reels. Por Tawana Madeira.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --ink:#17121d;
+  --graphite:#33283b;
+  --muted:#6d5d72;
+  --cream:#fbf6fb;
+  --white:#ffffff;
+  --sand:#f4d8ef;
+  --gold:#d539b4;
+  --gold-soft:#f5c8ee;
+  --dark:#1b1024;
+  --dark2:#3a1646;
+  --purple:#5c1e63;
+  --line: rgba(23,18,29,.1);
+  --line-light: rgba(255,255,255,.14);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+.wrap-narrow{max-width:760px; margin:0 auto; padding:0 24px;}
+
+em{font-style:italic;}
+
+h1,h2,h3{font-family:'Cormorant Garamond', serif; font-weight:600; letter-spacing:-.01em; color:var(--ink);}
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:.6em;
+  font-size:12px; letter-spacing:.2em; text-transform:uppercase;
+  font-weight:700; color:var(--gold); margin-bottom:18px;
+}
+.eyebrow::before{content:''; width:30px; height:1px; background:var(--gold); display:inline-block;}
+.eyebrow.on-dark{color:var(--gold-soft);}
+.eyebrow.on-dark::before{background:var(--gold-soft);}
+
+/* ---------------- BUTTONS ---------------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:15.5px;
+  padding:18px 34px; border-radius:100px; text-decoration:none;
+  background:var(--gold); color:#fff;
+  box-shadow:0 14px 30px -10px rgba(213,57,180,.55);
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  border:none; cursor:pointer; white-space:nowrap;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 18px 36px -8px rgba(213,57,180,.65); background:#c22ea4;}
+.btn svg{width:18px; height:18px; flex:none;}
+.btn-row{ display:flex; justify-content:center; margin:38px 0 6px; }
+.btn-sub{
+  display:block; text-align:center; font-size:12.5px; color:var(--muted);
+  margin-top:12px; letter-spacing:.02em;
+}
+
+/* ---------------- NAV ---------------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(27,16,36,.88); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-light);
+}
+.nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+.nav-logo{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600; font-size:20px; color:#fff; }
+.nav-logo span{ color:var(--gold-soft); }
+.nav .btn{ padding:11px 22px; font-size:13px; }
+
+/* ---------------- HERO ---------------- */
+.hero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(213,57,180,.32), transparent 40%),
+    radial-gradient(circle at 8% 95%, rgba(92,30,99,.55), transparent 45%),
+    linear-gradient(150deg, var(--dark) 0%, var(--dark2) 60%, #2a1030 100%);
+  color:#fff;
+  padding:88px 0 70px;
+}
+.hero:after{
+  content:'3';
+  position:absolute; right:-4%; bottom:-14%;
+  font-family:'Cormorant Garamond'; font-weight:600; font-size:56vw; line-height:1;
+  color:rgba(255,255,255,.035); pointer-events:none;
+}
+.hero .wrap{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center;
+}
+.hero-title{
+  font-size:clamp(38px, 5.2vw, 60px); line-height:1.04; letter-spacing:-.02em; color:#fff;
+}
+.hero-title em{ color:var(--gold); font-style:italic; font-weight:500; }
+.hero-sub{
+  font-size:17px; color:rgba(255,255,255,.72); max-width:480px; margin-top:22px; line-height:1.75;
+}
+.hero-visual{
+  position:relative;
+  display:flex; justify-content:center;
+}
+.hero-photo-frame{
+  position:relative; width:100%; max-width:360px;
+  border-radius:26px; overflow:hidden;
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.6);
+  border:1px solid rgba(255,255,255,.14);
+}
+.hero-photo-frame img{ display:block; width:100%; height:auto; }
+.hero-badge{
+  position:absolute; left:-18px; bottom:26px;
+  background:#fff; color:var(--ink);
+  border-radius:16px; padding:14px 18px;
+  box-shadow:0 18px 34px -12px rgba(0,0,0,.35);
+  display:flex; align-items:center; gap:12px;
+  max-width:230px;
+}
+.hero-badge .num{ font-family:'Cormorant Garamond'; font-weight:700; font-size:30px; color:var(--gold); line-height:1;}
+.hero-badge .txt{ font-size:11.5px; color:var(--muted); line-height:1.4; font-weight:600;}
+.hero .btn-row{ justify-content:flex-start; margin:34px 0 0;}
+.hero .btn-sub{ text-align:left; }
+
+/* ---------------- SECTION GENERIC ---------------- */
+section{ padding:88px 0; }
+.section-cream{ background:var(--cream); }
+.section-white{ background:var(--white); }
+.section-dark{
+  background:linear-gradient(150deg, var(--dark) 0%, var(--dark2) 100%); color:#fff;
+}
+.section-dark h2{ color:#fff; }
+.section-dark .muted-on-dark{ color:rgba(255,255,255,.72); }
+
+h2.title{ font-size:clamp(28px,3.6vw,40px); line-height:1.08; margin-bottom:20px;}
+h2.title em{ color:var(--gold); font-style:italic; font-weight:500; }
+.lede{ font-size:17px; color:var(--graphite); max-width:640px; line-height:1.8; }
+.section-dark .lede{ color:rgba(255,255,255,.75); }
+
+/* ---------------- PROBLEM ---------------- */
+.problem-block{ text-align:center; }
+.problem-block .lede{ margin:0 auto; }
+.problem-quote{
+  font-family:'Cormorant Garamond'; font-style:italic; font-weight:500;
+  font-size:clamp(22px,2.6vw,28px); color:var(--ink); max-width:680px; margin:34px auto 0;
+  line-height:1.5;
+}
+.problem-quote .hl{ color:var(--gold); }
+
+/* ---------------- SOLUTION ---------------- */
+.solution{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.solution-num{
+  font-family:'Cormorant Garamond'; font-weight:700; font-size:120px; line-height:1;
+  color:var(--gold); opacity:.9;
+}
+.solution-num small{ font-size:22px; font-weight:600; color:rgba(255,255,255,.7); display:block; letter-spacing:.14em; text-transform:uppercase; margin-top:10px;}
+
+/* ---------------- CHECKLIST ---------------- */
+.check-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:40px; }
+.check-card{
+  background:var(--white); border:1px solid var(--line); border-radius:18px;
+  padding:26px 26px; display:flex; gap:16px; align-items:flex-start;
+}
+.check-card .mark{
+  flex:none; width:30px; height:30px; border-radius:50%;
+  background:var(--gold-soft); color:var(--purple);
+  display:flex; align-items:center; justify-content:center; font-weight:800; font-size:15px;
+}
+.check-card p{ font-size:15px; color:var(--graphite); }
+
+/* ---------------- FOR YOU ---------------- */
+.foryou{
+  background:linear-gradient(150deg, var(--dark) 0%, var(--dark2) 100%);
+  border-radius:28px; padding:56px 52px; color:#fff;
+}
+.foryou-list{ display:flex; flex-direction:column; gap:22px; margin-top:32px; }
+.foryou-item{ display:flex; gap:16px; align-items:flex-start; }
+.foryou-item .dash{ flex:none; width:22px; height:1px; background:var(--gold-soft); margin-top:14px; }
+.foryou-item p{ font-size:16.5px; color:rgba(255,255,255,.85); }
+
+/* ---------------- ABOUT ---------------- */
+.about{ display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:center; }
+.about-photo{
+  border-radius:22px; overflow:hidden; box-shadow:0 30px 60px -20px rgba(23,18,29,.35);
+}
+.about-photo img{ display:block; width:100%; height:auto; }
+.about-quote{
+  margin-top:26px; padding:22px 26px; border-radius:16px;
+  background:var(--sand);
+  font-family:'Cormorant Garamond'; font-style:italic; font-weight:500;
+  font-size:19px; color:var(--purple); line-height:1.5;
+}
+.about-name{ margin-top:24px; font-family:'Cormorant Garamond'; font-style:italic; font-size:20px; color:var(--purple); }
+.about-name span{ display:block; font-family:'Inter'; font-style:normal; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+
+/* ---------------- PRICING ---------------- */
+.pricing{
+  text-align:center;
+  background:linear-gradient(150deg, var(--dark) 0%, var(--dark2) 60%, #2a1030 100%);
+  color:#fff; position:relative; overflow:hidden;
+}
+.pricing:after{
+  content:'100'; position:absolute; left:50%; top:50%; transform:translate(-50%,-42%);
+  font-family:'Cormorant Garamond'; font-weight:600; font-size:42vw; line-height:1;
+  color:rgba(255,255,255,.035); pointer-events:none; white-space:nowrap;
+}
+.pricing-inner{ position:relative; z-index:2; }
+.price-tag{
+  display:inline-flex; align-items:baseline; gap:14px; margin:26px 0 8px;
+}
+.price-old{ font-size:20px; color:rgba(255,255,255,.5); text-decoration:line-through; font-family:'Inter'; }
+.price-new{ font-family:'Cormorant Garamond'; font-weight:700; font-size:64px; color:var(--gold-soft); }
+.price-new sup{ font-size:26px; top:-24px; position:relative; }
+.price-note{ font-size:13.5px; color:rgba(255,255,255,.55); letter-spacing:.04em; margin-bottom:10px; }
+
+/* ---------------- FINAL CTA ---------------- */
+.final{ text-align:center; }
+.final h2{ max-width:620px; margin:0 auto 18px; }
+
+footer{
+  background:var(--dark); color:rgba(255,255,255,.55);
+  padding:40px 0; text-align:center; font-size:13px;
+}
+footer strong{ color:#fff; font-weight:600; }
+footer a{ color:var(--gold-soft); text-decoration:none; }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width:860px){
+  .hero .wrap{ grid-template-columns:1fr; }
+  .hero-visual{ order:-1; }
+  .hero .btn-row, .hero .btn-sub{ text-align:center; justify-content:center; }
+  .solution{ grid-template-columns:1fr; gap:32px; }
+  .solution-num{ font-size:80px; }
+  .check-grid{ grid-template-columns:1fr; }
+  .about{ grid-template-columns:1fr; }
+  .about-photo{ max-width:340px; margin:0 auto; }
+  .foryou{ padding:40px 26px; }
+  section{ padding:64px 0; }
+  .price-new{ font-size:46px; }
+}
+@media (max-width:480px){
+  .btn{ width:100%; }
+  .btn-row{ padding:0 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-logo">Tawana Madeira <span>&middot; Estratégia Digital</span></div>
+    <a class="btn" href="https://pay.hotmart.com/O106856620J" target="_blank" rel="noopener">Quero o guia</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow on-dark">Guia prático &middot; Reels &amp; conteúdo</span>
+      <h1 class="hero-title">Os primeiros <em>3 segundos</em> decidem se o seu conteúdo será assistido ou ignorado.</h1>
+      <p class="hero-sub">É nesse intervalo que as pessoas escolhem ficar ou deslizar para o próximo vídeo. Você pode ter uma boa ideia, um conteúdo valioso e uma edição impecável — mas se a abertura não despertar interesse, grande parte das pessoas nunca chegará até a sua mensagem.</p>
+      <div class="btn-row" style="justify-content:flex-start;">
+        <a class="btn" href="https://pay.hotmart.com/O106856620J" target="_blank" rel="noopener">
+          Quero meu Guia dos 100 Ganchos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <span class="btn-sub">Acesso imediato &middot; de R$49,90 por R$29,90</span>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo-frame">
+        <img src="assets/img/tawana-hero.jpg" alt="Tawana Madeira, estrategista de conteúdo">
+      </div>
+      <div class="hero-badge">
+        <span class="num">100</span>
+        <span class="txt">formas de abrir um vídeo sem travar na primeira frase</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="section-cream problem-block">
+  <div class="wrap-narrow">
+    <span class="eyebrow">O problema</span>
+    <h2 class="title">E o problema, na maioria das vezes,<br>não é <em>falta de criatividade</em>.</h2>
+    <p class="lede">Você pode ter uma boa ideia, um conteúdo valioso e uma edição impecável. Mas, se a abertura não despertar interesse, grande parte das pessoas nunca chegará até a sua mensagem.</p>
+    <p class="problem-quote">É não saber <span class="hl">como começar</span>.</p>
+    <div class="btn-row">
+      <a class="btn" href="https://pay.hotmart.com/O106856620J" target="_blank" rel="noopener">Quero resolver isso agora</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section-dark">
+  <div class="wrap solution">
+    <div>
+      <div class="solution-num">100<small>Ganchos prontos para adaptar</small></div>
+    </div>
+    <div>
+      <span class="eyebrow on-dark">A solução</span>
+      <h2 class="title">Foi pensando nisso que eu criei<br>o <em>Guia dos 100 Ganchos</em>.</h2>
+      <p class="lede">Um material prático para quem quer parar de perder tempo procurando a primeira frase e começar a gravar com mais estratégia.</p>
+      <p class="lede" style="margin-top:14px;">Aqui você encontra 100 formas de começar um vídeo que podem ser adaptadas para qualquer nicho, sem precisar copiar o jeito de ninguém.</p>
+      <div class="btn-row" style="justify-content:flex-start;">
+        <a class="btn" href="https://pay.hotmart.com/O106856620J" target="_blank" rel="noopener">Quero meu guia agora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE VOCE VAI ENCONTRAR -->
+<section class="section-white">
+  <div class="wrap">
+    <span class="eyebrow">O que você vai encontrar</span>
+    <h2 class="title">Estrutura, não sorte.</h2>
+    <p class="lede">Cada gancho foi pensado para abrir caminho para o assunto — nunca para competir com ele.</p>
+    <div class="check-grid">
+      <div class="check-card"><span class="mark">✔</span><p>100 ganchos organizados por estratégia.</p></div>
+      <div class="check-card"><span class="mark">✔</span><p>Estruturas para despertar curiosidade, identificação, contraste, autoridade e outros gatilhos que aumentam a retenção.</p></div>
+      <div class="check-card"><span class="mark">✔</span><p>Modelos fáceis de adaptar ao seu jeito de comunicar.</p></div>
+      <div class="check-card"><span class="mark">✔</span><p>Um guia para consultar sempre que for gravar um novo vídeo.</p></div>
+    </div>
+    <div class="btn-row">
+      <a class="btn" href="https://pay.hotmart.com/O106856620J" target="_blank" rel="noopener">Quero acesso ao guia</a>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM E -->
+<section class="section-cream">
+  <div class="wrap">
+    <div class="foryou">
+      <span class="eyebrow on-dark">Este guia é para você que...</span>
+      <h2 class="title" style="max-width:520px;">Reconhece pelo menos<br>uma dessas frases?</h2>
+      <div class="foryou-list">
+        <div class="foryou-item"><span class="dash"></span><p>Trava na hora de começar a gravar.</p></div>
+        <div class="foryou-item"><span class="dash"></span><p>Tem boas ideias, mas sente que seus vídeos não prendem a atenção.</p></div>
+        <div class="foryou-item"><span class="dash"></span><p>Quer criar conteúdo com mais estratégia e menos bloqueio criativo.</p></div>
+        <div class="foryou-item"><span class="dash"></span><p>Entende que um bom vídeo começa muito antes da primeira dica.</p></div>
+      </div>
+      <div class="btn-row">
+        <a class="btn" href="https://pay.hotmart.com/O106856620J" target="_blank" rel="noopener">Sim, é para mim</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOU EU -->
+<section class="section-white">
+  <div class="wrap about">
+    <div class="about-photo">
+      <img src="assets/img/tawana-sobre.jpg" alt="Tawana Madeira, estrategista de conteúdo e mentora de posicionamento digital">
+    </div>
+    <div>
+      <span class="eyebrow">Quem sou eu</span>
+      <h2 class="title">Sou <em>Tawana Madeira</em>, estrategista de conteúdo e mentora de posicionamento digital.</h2>
+      <p class="lede">Há mais de 7 anos, ajudo empreendedores a transformarem conhecimento em conteúdo que gera autoridade, conexão e vendas.</p>
+      <p class="lede" style="margin-top:14px;">Ao longo desses anos, escrevi centenas de roteiros, analisei perfis de diferentes nichos e acompanhei de perto o que faz um conteúdo prender a atenção ou ser ignorado. Foi dessa experiência que nasceu o Guia dos 100 Ganchos.</p>
+      <div class="about-quote">"Não são frases prontas para copiar. São estruturas que você pode adaptar ao seu jeito de comunicar para gravar com mais confiança e prender a atenção desde a primeira frase."</div>
+      <div class="about-name">Tawana Madeira<span>Estratégia Digital</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="oferta">
+  <div class="wrap pricing-inner">
+    <span class="eyebrow on-dark" style="justify-content:center;">Oferta de lançamento</span>
+    <h2 class="title" style="text-align:center; margin:0 auto;">Tenha acesso imediato ao<br><em>Guia dos 100 Ganchos</em>.</h2>
+    <div class="price-tag">
+      <span class="price-old">R$ 49,90</span>
+      <span class="price-new"><sup>R$</sup> 29,90</span>
+    </div>
+    <p class="price-note">Valor especial de lançamento por tempo limitado.</p>
+    <p class="lede" style="margin:0 auto 8px; text-align:center; color:rgba(255,255,255,.78);">Transforme a forma como você começa os seus vídeos — do trava-trava à primeira frase, direto para a gravação.</p>
+    <div class="btn-row">
+      <a class="btn" href="https://pay.hotmart.com/O106856620J" target="_blank" rel="noopener">
+        Quero meu Guia dos 100 Ganchos
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <span class="btn-sub" style="text-align:center;">Pagamento seguro via Hotmart &middot; acesso imediato após a compra</span>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="section-cream final">
+  <div class="wrap-narrow">
+    <span class="eyebrow" style="justify-content:center;">Agora é com você</span>
+    <h2 class="title">O próximo vídeo que você gravar<br>pode começar <em>diferente</em>.</h2>
+    <p class="lede" style="margin:0 auto;">Escolha um gancho, adapte para o seu assunto e grave. O guia fica com você para sempre — para consultar antes de cada novo vídeo.</p>
+    <div class="btn-row">
+      <a class="btn" href="https://pay.hotmart.com/O106856620J" target="_blank" rel="noopener">Quero meu guia agora</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <strong>Tawana Madeira</strong> &middot; Estratégia Digital<br>
+    <a href="https://www.instagram.com/tawanasmadeira" target="_blank" rel="noopener">@tawanasmadeira</a> &middot;
+    <a href="https://twestrategiadigital.com.br" target="_blank" rel="noopener">twestrategiadigital.com.br</a>
+  </div>
+</footer>
+
+</body>
+</html>
 
