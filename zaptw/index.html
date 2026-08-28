@@ -1,1 +1,856 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZapTW — WhatsApp Profissional + Webchat, CRM e IA em um só painel | TW Estratégia Digital</title>
+<meta name="description" content="Central de atendimento, CRM, Inteligência Artificial e agora Webchat em uma única plataforma. Pare de perder clientes no WhatsApp. Setup em 24h, sem fidelidade.">
+<link rel="canonical" href="https://www.twestrategiadigital.com.br/zaptw/">
+
+<!-- ============================================================
+  GOOGLE ADS / META ADS — cole as tags de conversão aqui dentro do <head>
+  Ex.: gtag.js (Google Ads) e/ou Meta Pixel.
+  Eventos sugeridos para disparar:
+    - "lead_whatsapp"  -> clique em qualquer botão .js-cta (WhatsApp)
+    - "view_planos"    -> quando a seção #planos entra na tela
+  Ambos já são despachados via dataLayer.push(...) no rodapé do arquivo,
+  então basta o gtag/pixel estar carregado para os eventos serem capturados.
+=============================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FBFAFF;
+    --bg-alt:#F1ECFF;
+    --panel-dark:#0C0B22;
+    --panel-dark-2:#15123A;
+    --ink:#181733;
+    --ink-soft:#524E72;
+    --violet:#6C2BD9;
+    --violet-2:#8B5CF6;
+    --violet-deep:#3E1687;
+    --magenta:#FF4FA0;
+    --line:rgba(24,23,51,0.09);
+    --line-dark:rgba(255,255,255,0.12);
+    --radius:20px;
+    --maxw:1160px;
+    --shadow:0 20px 50px -20px rgba(76,29,149,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,video{max-width:100%;display:block;}
+  h1,h2,h3{font-family:'Sora',sans-serif;color:var(--ink);margin:0;line-height:1.08;letter-spacing:-0.01em;}
+  p{margin:0;color:var(--ink-soft);line-height:1.65;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--violet);font-weight:500;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--magenta);display:inline-block;transform:rotate(45deg);}
+  section{padding:96px 0;position:relative;}
+  @media(max-width:720px){section{padding:64px 0;}}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:15px 28px;border-radius:100px;font-weight:600;font-size:15.5px;
+    text-decoration:none;border:1px solid transparent;cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--violet);color:#fff;box-shadow:var(--shadow);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 24px 55px -18px rgba(108,43,217,0.55);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--violet);color:var(--violet);}
+  .btn-light{background:#fff;color:var(--violet-deep);}
+  .btn-light:hover{transform:translateY(-2px);}
+  .btn-sm{padding:10px 18px;font-size:13.5px;border-radius:100px;}
+
+  /* ================= NAV ================= */
+  header.site-nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,255,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:var(--maxw);margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:'Sora';font-weight:800;font-size:19px;text-decoration:none;color:var(--ink);}
+  .logo-mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--violet),var(--magenta));position:relative;flex:none;}
+  .logo-mark::after{content:"";position:absolute;inset:8px;background:#fff;border-radius:4px;clip-path:polygon(0 0,100% 0,100% 65%,55% 65%,40% 100%,40% 65%,0 65%);}
+  .nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--violet);}
+  .nav-back{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-soft);text-decoration:none;padding-right:6px;border-right:1px solid var(--line);margin-right:6px;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .nav-back span{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ================= HERO ================= */
+  .hero{padding-top:64px;padding-bottom:40px;overflow:visible;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:44px;}}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;border:1px solid var(--line);border-radius:100px;
+    padding:6px 14px 6px 6px;font-size:13px;font-weight:600;color:var(--ink);
+    box-shadow:0 6px 20px -12px rgba(24,23,51,0.25);margin-bottom:22px;
+  }
+  .hero-badge b{background:linear-gradient(135deg,var(--violet),var(--magenta));color:#fff;font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.08em;padding:4px 9px;border-radius:100px;}
+  .hero h1{font-size:clamp(34px,5vw,54px);font-weight:800;}
+  .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--violet),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-sub{margin-top:20px;font-size:18px;max-width:520px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+  .hero-trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line);}
+  .hero-trust div{font-size:13px;color:var(--ink-soft);display:flex;align-items:center;gap:7px;font-weight:500;}
+  .hero-trust div::before{content:"✓";color:var(--violet);font-weight:800;}
+
+  /* --- signature: phone chat mockup --- */
+  .phone{
+    background:var(--panel-dark);
+    border-radius:32px;padding:14px;
+    box-shadow:0 40px 80px -30px rgba(12,11,34,0.55);
+    max-width:360px;margin:0 auto;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .phone-screen{background:#0F0E2B;border-radius:22px;padding:18px 14px 14px;position:relative;overflow:hidden;}
+  .phone-screen::before{content:"";position:absolute;inset:0;background:
+      radial-gradient(circle at 15% 0%, rgba(108,43,217,0.35), transparent 45%),
+      radial-gradient(circle at 100% 30%, rgba(255,79,160,0.18), transparent 40%);
+    pointer-events:none;}
+  .phone-head{display:flex;align-items:center;gap:10px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.08);position:relative;}
+  .phone-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--violet-2),var(--magenta));flex:none;}
+  .phone-head strong{color:#fff;font-size:14px;display:block;}
+  .phone-head span{color:rgba(255,255,255,0.5);font-size:11.5px;}
+  .bubble-row{display:flex;margin-bottom:10px;position:relative;}
+  .bubble-row.in{justify-content:flex-start;}
+  .bubble-row.out{justify-content:flex-end;}
+  .tag{
+    position:absolute;top:-9px;font-family:'JetBrains Mono';font-size:9px;letter-spacing:.05em;
+    padding:2px 7px;border-radius:100px;color:#fff;text-transform:uppercase;font-weight:500;
+  }
+  .bubble-row.in .tag{left:10px;}
+  .bubble-row.out .tag{right:10px;}
+  .tag.comercial{background:#7C3AED;}
+  .tag.financeiro{background:#DB2777;}
+  .tag.suporte{background:#2563EB;}
+  .bubble{
+    max-width:76%;padding:10px 13px 9px;border-radius:14px;font-size:12.8px;line-height:1.45;
+    margin-top:10px;position:relative;
+  }
+  .bubble-row.in .bubble{background:#1E1B45;color:#EDEBFA;border-bottom-left-radius:4px;}
+  .bubble-row.out .bubble{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;border-bottom-right-radius:4px;}
+  .bubble .meta{display:block;text-align:right;font-size:9.5px;margin-top:5px;opacity:.7;font-family:'JetBrains Mono';}
+  .bubble .meta .tick{color:#B9FF6A;letter-spacing:-1px;}
+  .phone-input{display:flex;align-items:center;gap:8px;margin-top:6px;background:rgba(255,255,255,0.06);border-radius:100px;padding:9px 13px;}
+  .phone-input span{color:rgba(255,255,255,0.35);font-size:12px;}
+
+  /* ================= PROBLEM (dark) ================= */
+  .problem{background:var(--panel-dark);color:#fff;}
+  .problem h2{color:#fff;}
+  .problem p{color:rgba(255,255,255,0.62);}
+  .problem-head{max-width:640px;margin-bottom:52px;}
+  .problem-head h2{font-size:clamp(28px,4vw,40px);margin-top:14px;}
+  .problem-head p{margin-top:16px;font-size:16.5px;}
+  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:18px;overflow:hidden;}
+  @media(max-width:860px){.pain-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.pain-grid{grid-template-columns:1fr;}}
+  .pain-card{background:var(--panel-dark-2);padding:28px 24px;}
+  .pain-card .x{width:26px;height:26px;border-radius:8px;background:rgba(255,79,160,0.15);color:var(--magenta);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-bottom:16px;}
+  .pain-card h3{color:#fff;font-size:16px;font-weight:700;margin-bottom:8px;}
+  .pain-card p{font-size:14px;color:rgba(255,255,255,0.55);}
+
+  /* ================= SOLUTION / NETWORK ================= */
+  .solution{background:var(--bg);}
+  .solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media(max-width:900px){.solution-grid{grid-template-columns:1fr;}}
+  .solution h2{font-size:clamp(26px,3.6vw,36px);margin-top:14px;}
+  .solution p{margin-top:16px;font-size:16.5px;max-width:480px;}
+  .cloud-chip{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:#fff;border:1px solid var(--line);padding:9px 16px;border-radius:100px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px -16px rgba(24,23,51,0.3);}
+  .cloud-chip::before{content:"☁";color:var(--violet);font-size:16px;}
+  .net-box{
+    aspect-ratio:1/1;max-width:420px;margin:0 auto;
+    background:radial-gradient(circle at 50% 40%, #16123f, var(--panel-dark) 70%);
+    border-radius:28px;position:relative;overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .net-box svg{width:100%;height:100%;}
+  .net-box .node{fill:#8B5CF6;}
+  .net-box .node.b{fill:#FF4FA0;}
+  .net-box line{stroke:rgba(139,92,246,0.35);stroke-width:1;}
+
+  /* ================= FEATURES ================= */
+  .features{background:var(--bg-alt);}
+  .section-head{max-width:620px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(26px,3.6vw,36px);margin-top:14px;}
+  .section-head p{margin-top:14px;font-size:16.5px;}
+  .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:960px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.feat-grid{grid-template-columns:1fr;}}
+  .feat-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 22px;position:relative;transition:transform .2s ease, box-shadow .2s ease;}
+  .feat-card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(24,23,51,0.25);}
+  .feat-card.new{border-color:var(--violet);}
+  .feat-icon{width:44px;height:44px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+  .feat-card.new .feat-icon{background:linear-gradient(135deg,var(--violet),var(--magenta));}
+  .feat-card h3{font-size:16px;margin-bottom:8px;}
+  .feat-card p{font-size:14px;}
+  .badge-new{position:absolute;top:18px;right:18px;background:var(--magenta);color:#fff;font-family:'JetBrains Mono';font-size:9.5px;letter-spacing:.08em;padding:4px 9px;border-radius:100px;font-weight:600;}
+
+  /* ================= CRM ================= */
+  .crm{background:var(--bg);}
+  .crm-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+  @media(max-width:960px){.crm-grid{grid-template-columns:1fr;}}
+  .crm ul{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;}
+  .crm li{display:flex;gap:11px;font-size:15px;color:var(--ink);font-weight:500;}
+  .crm li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:7px;background:var(--bg-alt);color:var(--violet);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .kanban{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);overflow-x:auto;}
+  .kanban-cols{display:flex;gap:12px;min-width:640px;}
+  .kcol{flex:1;background:var(--bg-alt);border-radius:12px;padding:10px;}
+  .kcol h4{font-family:'JetBrains Mono';font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);margin:2px 6px 10px;}
+  .kcard{background:#fff;border-radius:9px;padding:9px 10px;margin-bottom:8px;box-shadow:0 6px 14px -10px rgba(24,23,51,0.35);font-size:11.5px;}
+  .kcard .who{display:flex;align-items:center;gap:6px;margin-bottom:5px;font-weight:600;color:var(--ink);}
+  .kcard .dot{width:16px;height:16px;border-radius:50%;flex:none;font-size:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;}
+  .kcard .val{color:var(--violet);font-weight:700;}
+
+  /* ================= AI ================= */
+  .ai{background:var(--panel-dark);color:#fff;}
+  .ai-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:50px;align-items:center;}
+  @media(max-width:900px){.ai-grid{grid-template-columns:1fr;}}
+  .ai h2{color:#fff;}
+  .ai-visual{background:var(--panel-dark-2);border-radius:20px;padding:22px;border:1px solid var(--line-dark);}
+  .ai-line{display:flex;align-items:flex-start;gap:10px;font-size:13px;padding:9px 0;color:rgba(255,255,255,0.55);border-bottom:1px dashed rgba(255,255,255,0.1);}
+  .ai-line:last-child{border-bottom:none;}
+  .ai-line .before{text-decoration:line-through;color:rgba(255,255,255,0.35);}
+  .ai-line .after{color:#fff;font-weight:500;}
+  .ai-cards{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
+  .ai-card{background:var(--panel-dark-2);border:1px solid var(--line-dark);border-radius:16px;padding:22px;}
+  .ai-card h3{color:#fff;font-size:16px;margin-bottom:8px;}
+  .ai-card p{color:rgba(255,255,255,0.6);font-size:14px;}
+
+  /* ================= VIDEOS ================= */
+  .videos{background:var(--bg-alt);}
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:860px){.video-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto;}}
+  .video-card{background:var(--panel-dark);border-radius:26px;padding:10px;box-shadow:var(--shadow);}
+  .video-card .frame{border-radius:18px;overflow:hidden;aspect-ratio:9/16;background:#000;position:relative;}
+  .video-card video{width:100%;height:100%;object-fit:cover;}
+  .video-caption{color:#fff;text-align:center;font-size:12.5px;padding:10px 6px 2px;font-weight:500;}
+
+  /* ================= METRICS ================= */
+  .metrics{background:var(--bg);}
+  .metrics-grid{display:grid;grid-template-columns:0.6fr 1.4fr;gap:50px;align-items:center;}
+  @media(max-width:860px){.metrics-grid{grid-template-columns:1fr;}}
+  .big-num{font-family:'Sora';font-weight:800;font-size:clamp(56px,8vw,84px);background:linear-gradient(135deg,var(--violet),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;}
+  .big-num-label{margin-top:8px;font-size:15px;color:var(--ink-soft);font-weight:500;}
+  .metric-list{display:flex;flex-direction:column;gap:0;}
+  .metric-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .metric-item:first-child{padding-top:0;}
+  .metric-item svg{flex:none;margin-top:2px;}
+  .metric-item strong{display:block;font-size:15px;color:var(--ink);}
+  .metric-item span{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ================= COST COMPARISON ================= */
+  .cost{background:var(--panel-dark);color:#fff;}
+  .cost h2{color:#fff;}
+  .cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  @media(max-width:900px){.cost-grid{grid-template-columns:1fr;}}
+  .bars{display:flex;align-items:flex-end;gap:40px;height:260px;padding-top:20px;}
+  .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+  .bar{width:100%;border-radius:12px 12px 0 0;position:relative;}
+  .bar.tall{background:linear-gradient(180deg,#3A3564,#221D4A);height:100%;}
+  .bar.short{background:linear-gradient(180deg,var(--violet-2),var(--violet));height:9%;}
+  .bar-value{position:absolute;top:-30px;left:0;right:0;text-align:center;font-family:'Sora';font-weight:700;font-size:17px;}
+  .bar-label{margin-top:14px;font-size:13px;color:rgba(255,255,255,0.55);text-align:center;}
+  .bar-label b{display:block;color:#fff;font-size:13.5px;margin-bottom:2px;}
+  .cost-note{margin-top:26px;font-size:13px;color:rgba(255,255,255,0.45);}
+
+  /* ================= PRICING ================= */
+  .pricing{background:var(--bg-alt);}
+  .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:960px){.plans{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.plans{grid-template-columns:1fr;max-width:360px;margin:0 auto;}}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;position:relative;}
+  .plan.featured{border:2px solid var(--violet);box-shadow:var(--shadow);}
+  .plan-pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--violet);color:#fff;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;padding:4px 12px;border-radius:100px;font-weight:600;white-space:nowrap;}
+  .plan h3{font-size:15px;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-family:'JetBrains Mono';font-size:11.5px;}
+  .plan .price{font-family:'Sora';font-weight:800;font-size:30px;margin-top:12px;}
+  .plan .price span{font-size:13px;font-weight:500;color:var(--ink-soft);font-family:'Inter';}
+  .plan .meta-line{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+  .plan ul{list-style:none;margin:18px 0 22px;padding:0;display:flex;flex-direction:column;gap:9px;flex:1;}
+  .plan li{font-size:13.5px;color:var(--ink);display:flex;gap:8px;}
+  .plan li::before{content:"✓";color:var(--violet);font-weight:800;flex:none;}
+  .plans-note{text-align:center;margin-top:26px;font-size:13px;color:var(--ink-soft);}
+
+  /* ================= IMPLEMENTATION ================= */
+  .implementation{background:var(--bg);}
+  .impl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:800px){.impl-grid{grid-template-columns:1fr;}}
+  .impl-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;}
+  .impl-icon{width:42px;height:42px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:16px;}
+  .impl-card h3{font-size:16px;margin-bottom:8px;}
+  .impl-card p{font-size:14px;}
+  .impl-card .em{color:var(--violet);font-weight:700;}
+
+  /* ================= FINAL CTA ================= */
+  .final{background:linear-gradient(135deg,var(--violet-deep),var(--violet) 55%,var(--magenta) 130%);color:#fff;text-align:center;}
+  .final h2{color:#fff;font-size:clamp(28px,4.4vw,42px);}
+  .final p{color:rgba(255,255,255,0.85);max-width:520px;margin:16px auto 0;font-size:16.5px;}
+  .final .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--panel-dark);color:rgba(255,255,255,0.55);padding:44px 0 28px;}
+  .footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center;}
+  .footer-inner a{color:rgba(255,255,255,0.7);text-decoration:none;}
+  .footer-inner a:hover{color:#fff;}
+  .footer-links{display:flex;gap:22px;font-size:13.5px;flex-wrap:wrap;}
+  .footer-brand{font-family:'Sora';font-weight:700;color:#fff;font-size:15px;}
+  .footer-bottom{margin-top:26px;padding-top:22px;border-top:1px solid var(--line-dark);font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* sticky mobile cta */
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:12px 16px;display:none;box-shadow:0 -10px 30px -18px rgba(24,23,51,0.4);}
+  .sticky-cta .btn{width:100%;}
+  @media(max-width:720px){.sticky-cta{display:block;} body{padding-bottom:76px;}}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark"></span> ZapTW
+    </a>
+    <nav class="nav-links">
+      <a href="#problema">O problema</a>
+      <a href="#solucao">Solução</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#video">Vídeos</a>
+      <a href="#planos">Planos</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-back" href="https://www.twestrategiadigital.com.br/" target="_blank" rel="noopener"><span>← Site da TW</span></a>
+      <a class="btn btn-primary btn-sm js-cta" data-loc="nav" href="https://wa.me/553140428010?text=Quero%20conhecer%20o%20ZapTW" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-badge"><b>NOVO</b> Agora com atendimento via Webchat no seu site</div>
+        <h1>A venda começa no <em>WhatsApp profissional.</em></h1>
+        <p class="hero-sub">Central de Atendimento + CRM + Inteligência Artificial + Webchat em uma única plataforma. Um número, vários atendentes, e nenhuma conversa perdida.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary js-cta" data-loc="hero" href="https://wa.me/553140428010?text=Quero%20conhecer%20o%20ZapTW" target="_blank" rel="noopener">Falar com um consultor</a>
+          <a class="btn btn-ghost" href="#planos">Ver planos e preços</a>
+        </div>
+        <div class="hero-trust">
+          <div>Setup em 24h</div>
+          <div>Sem fidelidade</div>
+          <div>100% cloud</div>
+          <div>Suporte em português</div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="phone-head">
+              <span class="phone-avatar"></span>
+              <div>
+                <strong>(31) 4042-8010</strong>
+                <span>1 número · 3 setores atendendo agora</span>
+              </div>
+            </div>
+
+            <div class="bubble-row in">
+              <span class="tag comercial">Comercial</span>
+              <div class="bubble">Boa tarde! Consigo te enviar o orçamento agora, um minuto 🙂</div>
+            </div>
+            <div class="bubble-row out">
+              <div class="bubble">Perfeito, fico no aguardo!<span class="meta"><span class="tick">✓✓</span> 14:02</span></div>
+            </div>
+            <div class="bubble-row in">
+              <span class="tag financeiro">Financeiro</span>
+              <div class="bubble">Sua nota fiscal já foi emitida, segue o link de pagamento 👇</div>
+            </div>
+            <div class="bubble-row in">
+              <span class="tag suporte">Suporte</span>
+              <div class="bubble">Consegui resolver por aqui, qualquer coisa é só chamar!</div>
+            </div>
+
+            <div class="phone-input"><span>Escreva uma mensagem…</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROBLEM ================= -->
+  <section class="problem" id="problema">
+    <div class="wrap">
+      <div class="problem-head reveal">
+        <span class="eyebrow">O custo do improviso</span>
+        <h2>Sua empresa está deixando dinheiro na mesa?</h2>
+        <p>O crescimento traz complexidade. Se você ainda atende pelo WhatsApp pessoal, no aparelho de alguém, você está limitando o próprio lucro — mesmo sem perceber.</p>
+      </div>
+      <div class="pain-grid reveal">
+        <div class="pain-card">
+          <div class="x">✕</div>
+          <h3>Conversas perdidas</h3>
+          <p>Clientes sem resposta e orçamentos esquecidos no meio do caminho.</p>
+        </div>
+        <div class="pain-card">
+          <div class="x">✕</div>
+          <h3>Falta de controle</h3>
+          <p>Se o vendedor sai da empresa, ele leva os contatos e o histórico junto.</p>
+        </div>
+        <div class="pain-card">
+          <div class="x">✕</div>
+          <h3>Escalabilidade zero</h3>
+          <p>Dependência de aparelhos físicos e números individuais por pessoa.</p>
+        </div>
+        <div class="pain-card">
+          <div class="x">✕</div>
+          <h3>Ponto cego</h3>
+          <p>Você sabe, agora, quantos orçamentos foram fechados hoje?</p>
+        </div>
+        <div class="pain-card">
+          <div class="x">✕</div>
+          <h3>Falta de relatórios</h3>
+          <p>Gestão baseada em "achismo" em vez de números reais.</p>
+        </div>
+        <div class="pain-card">
+          <div class="x">✕</div>
+          <h3>Perda de oportunidades</h3>
+          <p>Atendimento lento é o motivo número um do cliente desistir da compra.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SOLUTION ================= -->
+  <section class="solution" id="solucao">
+    <div class="wrap solution-grid">
+      <div class="reveal">
+        <span class="eyebrow">A solução</span>
+        <h2>Conheça o ZapChat Cloud</h2>
+        <p>Uma plataforma 100% em nuvem que centraliza toda a comunicação comercial da sua empresa — WhatsApp e, agora, Webchat no seu próprio site, no mesmo painel.</p>
+        <p>Esqueça servidores caros ou infraestrutura complexa. Basta internet para transformar seu atendimento em uma máquina de vendas.</p>
+        <div class="cloud-chip">100% Cloud · Web e Mobile · Seguro</div>
+      </div>
+      <div class="net-box reveal" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <g id="lines"></g>
+          <g id="nodes"></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section class="features" id="recursos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Atendimento profissional 24h</span>
+        <h2>Tudo que sua operação comercial precisa, em um painel só.</h2>
+        <p>Distribuição inteligente por setor, histórico completo e, agora, mais um canal de entrada para o seu cliente falar com você.</p>
+      </div>
+      <div class="feat-grid reveal">
+        <div class="feat-card">
+          <div class="feat-icon">📞</div>
+          <h3>Número único</h3>
+          <p>Use apenas um número para toda a empresa. O cliente sempre sabe onde te encontrar.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">👥</div>
+          <h3>Multi-atendentes</h3>
+          <p>Comercial, financeiro, suporte e produção usando o mesmo canal, ao mesmo tempo.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🤖</div>
+          <h3>Auto-atendimento</h3>
+          <p>Distribuição inteligente por setores e respostas automáticas fora do horário comercial.</p>
+        </div>
+        <div class="feat-card new">
+          <span class="badge-new">Novo</span>
+          <div class="feat-icon">💻</div>
+          <h3>Webchat no seu site</h3>
+          <p>Um widget de chat direto no seu site, caindo na mesma caixa de entrada do WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CRM ================= -->
+  <section class="crm">
+    <div class="wrap crm-grid">
+      <div class="reveal">
+        <span class="eyebrow">CRM & Kanban comercial</span>
+        <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:14px;">Acompanhe cada lead do primeiro "oi" até o pós-venda.</h2>
+        <p style="margin-top:14px;font-size:16px;">Sem precisar de planilhas complexas para saber onde cada negociação está.</p>
+        <ul>
+          <li>Funil de vendas visual e intuitivo</li>
+          <li>Histórico de cada ticket registrado</li>
+          <li>Acompanhamento de orçamentos enviados</li>
+          <li>Controle de vendas concluídas e pós-venda</li>
+        </ul>
+      </div>
+      <div class="kanban reveal" aria-hidden="true">
+        <div class="kanban-cols">
+          <div class="kcol">
+            <h4>Qualificação</h4>
+            <div class="kcard"><div class="who"><span class="dot" style="background:#7C3AED;">C</span>Cliente A</div>Interesse em plano Growth</div>
+          </div>
+          <div class="kcol">
+            <h4>Oportunidade</h4>
+            <div class="kcard"><div class="who"><span class="dot" style="background:#DB2777;">B</span>Cliente B</div>Orçamento enviado</div>
+            <div class="kcard"><div class="who"><span class="dot" style="background:#2563EB;">D</span>Cliente D</div>Aguardando retorno</div>
+          </div>
+          <div class="kcol">
+            <h4>Negociação</h4>
+            <div class="kcard"><div class="who"><span class="dot" style="background:#059669;">E</span>Cliente E</div>Ajuste de proposta</div>
+          </div>
+          <div class="kcol">
+            <h4>Ganho</h4>
+            <div class="kcard"><div class="who"><span class="dot" style="background:#7C3AED;">F</span>Cliente F</div><span class="val">Fechado ✓</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI ================= -->
+  <section class="ai">
+    <div class="wrap ai-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--violet-2);">O poder da inteligência artificial</span>
+        <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:14px;">A IA cuida do tom. Sua equipe cuida do cliente.</h2>
+        <div class="ai-cards">
+          <div class="ai-card">
+            <h3>Correção &amp; refinamento</h3>
+            <p>IA integrada que corrige textos e melhora o tom da conversa antes do envio.</p>
+          </div>
+          <div class="ai-card">
+            <h3>Respostas automáticas</h3>
+            <p>Sugestões inteligentes para agilizar o atendimento e fluxos automatizados personalizados.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ai-visual reveal" aria-hidden="true">
+        <div class="ai-line"><span class="before">"pode manda os valors pra vc"</span></div>
+        <div class="ai-line"><span class="after">→ "Claro! Posso te enviar os valores agora mesmo."</span></div>
+        <div class="ai-line"><span class="before">"aguarda "</span></div>
+        <div class="ai-line"><span class="after">→ "Um instante, já te retorno com a informação."</span></div>
+        <div class="ai-line" style="border-bottom:none;"><span class="before">sem resposta às 22h37</span></div>
+        <div class="ai-line" style="border-bottom:none;"><span class="after">→ resposta automática enviada em 2s</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIDEOS ================= -->
+  <section class="videos" id="video">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin:0 auto 48px;text-align:center;">
+        <span class="eyebrow">Veja na prática</span>
+        <h2>O ZapTW explicado em menos de 1 minuto.</h2>
+        <p style="margin:14px auto 0;">Três vídeos rápidos: as dores de quem ainda atende no WhatsApp pessoal, e como o ZapTW resolve isso.</p>
+      </div>
+      <div class="video-grid reveal">
+        <div class="video-card">
+          <div class="frame">
+            <video controls preload="none" poster="img/poster-2.jpg" playsinline>
+              <source src="videos/story-zaptw-dores.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">As dores do atendimento amador</div>
+        </div>
+        <div class="video-card">
+          <div class="frame">
+            <video controls preload="none" poster="img/poster-1.jpg" playsinline>
+              <source src="videos/story-zaptw.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">Conheça o ZapTW</div>
+        </div>
+        <div class="video-card">
+          <div class="frame">
+            <video controls preload="none" poster="img/poster-3.jpg" playsinline>
+              <source src="videos/zaptw-tour.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">Tour completo pela plataforma</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= METRICS ================= -->
+  <section class="metrics">
+    <div class="wrap metrics-grid">
+      <div class="reveal">
+        <div class="big-num">100%</div>
+        <div class="big-num-label">Histórico permanente de conversas</div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Gestão baseada em dados reais</span>
+        <h2 style="font-size:clamp(24px,3.2vw,32px);margin-top:12px;">Tome decisões com relatórios que sua empresa nunca teve antes.</h2>
+        <div class="metric-list" style="margin-top:22px;">
+          <div class="metric-item">
+            <div><strong>Tempo médio de resposta</strong><span>Por atendente e por setor, em tempo real.</span></div>
+          </div>
+          <div class="metric-item">
+            <div><strong>Performance individual</strong><span>Veja o rendimento de cada atendente da equipe.</span></div>
+          </div>
+          <div class="metric-item" style="border-bottom:none;">
+            <div><strong>Volume de atendimentos</strong><span>Acompanhe o volume por período e identifique picos.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COST COMPARISON ================= -->
+  <section class="cost">
+    <div class="wrap cost-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--violet-2);">Quanto custa não ter o ZapTW?</span>
+        <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:14px;">Contratar mais um atendente custa bem mais do que parece.</h2>
+        <p style="margin-top:14px;color:rgba(255,255,255,0.65);font-size:15.5px;">Um funcionário no piso do salário mínimo, com todos os encargos, custa cerca de <strong style="color:#fff;">R$ 3.228/mês</strong> para a empresa. O plano de entrada do ZapTW custa uma fração disso — e organiza toda a sua equipe de atendimento, não só uma pessoa.</p>
+        <p class="cost-note">Estimativa com salário mínimo + INSS patronal (20%), FGTS (8%), 13º, férias, 1/3 de férias, VA e VT — valores de referência, sujeitos a variação conforme convenção e benefícios da empresa.</p>
+      </div>
+      <div class="reveal">
+        <div class="bars" aria-hidden="true">
+          <div class="bar-col">
+            <div class="bar tall"><span class="bar-value">R$ 3.228</span></div>
+            <div class="bar-label"><b>1 funcionário</b>com todos os encargos</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar short"><span class="bar-value">R$ 240</span></div>
+            <div class="bar-label"><b>Plano Start</b>toda a equipe organizada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="pricing" id="planos">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin:0 auto 48px;text-align:center;">
+        <span class="eyebrow">Planos flexíveis e escaláveis</span>
+        <h2>Comece pequeno, cresça sem trocar de plataforma.</h2>
+        <p style="margin:14px auto 0;">O Webchat entra como mais um canal — some ao WhatsApp sem sair do plano que você já usa.</p>
+      </div>
+      <div class="plans reveal">
+        <div class="plan">
+          <h3>Start</h3>
+          <div class="price">R$ 240<span>/mês</span></div>
+          <div class="meta-line">Equipes enxutas · 1 canal · até 5 usuários</div>
+          <ul>
+            <li>CRM + Kanban</li>
+            <li>Inteligência artificial</li>
+            <li>Relatórios</li>
+            <li>API</li>
+          </ul>
+          <a class="btn btn-ghost js-cta" data-loc="plano-start" href="https://wa.me/553140428010?text=Quero%20o%20plano%20Start%20do%20ZapTW" target="_blank" rel="noopener">Escolher Start</a>
+        </div>
+        <div class="plan featured">
+          <span class="plan-pop">Mais escolhido</span>
+          <h3>Growth</h3>
+          <div class="price">R$ 390<span>/mês</span></div>
+          <div class="meta-line">Crescimento · 2 canais · até 10 usuários</div>
+          <ul>
+            <li>Todos os recursos do Start</li>
+            <li>WhatsApp + Webchat juntos</li>
+            <li>Suporte prioritário</li>
+          </ul>
+          <a class="btn btn-primary js-cta" data-loc="plano-growth" href="https://wa.me/553140428010?text=Quero%20o%20plano%20Growth%20do%20ZapTW" target="_blank" rel="noopener">Escolher Growth</a>
+        </div>
+        <div class="plan">
+          <h3>Business</h3>
+          <div class="price">R$ 690<span>/mês</span></div>
+          <div class="meta-line">Escalável · 3 canais · até 20 usuários</div>
+          <ul>
+            <li>Estrutura comercial completa</li>
+            <li>Alta demanda de atendimento</li>
+            <li>Todos os recursos incluídos</li>
+          </ul>
+          <a class="btn btn-ghost js-cta" data-loc="plano-business" href="https://wa.me/553140428010?text=Quero%20o%20plano%20Business%20do%20ZapTW" target="_blank" rel="noopener">Escolher Business</a>
+        </div>
+        <div class="plan">
+          <h3>Enterprise</h3>
+          <div class="price" style="font-size:22px;">Sob consulta</div>
+          <div class="meta-line">Personalizado · canais e usuários sob consulta</div>
+          <ul>
+            <li>Projetos customizados</li>
+            <li>Fluxos específicos</li>
+            <li>Atendimento dedicado</li>
+          </ul>
+          <a class="btn btn-ghost js-cta" data-loc="plano-enterprise" href="https://wa.me/553140428010?text=Quero%20falar%20sobre%20o%20plano%20Enterprise%20do%20ZapTW" target="_blank" rel="noopener">Falar com consultor</a>
+        </div>
+      </div>
+      <p class="plans-note">Usuário adicional: R$ 30 (até 10 usuários) ou R$ 25 (acima de 10). Canal extra: R$ 90/número — o Webchat conta como um canal.</p>
+    </div>
+  </section>
+
+  <!-- ================= IMPLEMENTATION ================= -->
+  <section class="implementation">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Implantação expressa</span>
+        <h2>Do fechamento à primeira conversa, em até 24 horas.</h2>
+      </div>
+      <div class="impl-grid reveal">
+        <div class="impl-card">
+          <div class="impl-icon">🚀</div>
+          <h3>Setup em 24h</h3>
+          <p>Operação funcionando em até 24 horas após a contratação. Sem obras ou espera.</p>
+        </div>
+        <div class="impl-card">
+          <div class="impl-icon">🛡️</div>
+          <h3>Sem fidelidade</h3>
+          <p>Você permanece pelos resultados. Cancelamento livre após 90 dias de utilização.</p>
+        </div>
+        <div class="impl-card">
+          <div class="impl-icon">💳</div>
+          <h3>Implantação única</h3>
+          <p>Investimento único: <span class="em">Start R$ 350</span> · <span class="em">Growth R$ 500</span> · <span class="em">Business R$ 800</span>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="final">
+    <div class="wrap reveal">
+      <span class="eyebrow" style="color:#fff;">TW Estratégia Digital</span>
+      <h2 style="margin-top:14px;">Vamos profissionalizar o WhatsApp da sua empresa?</h2>
+      <p>Estamos prontos para montar seu fluxo de atendimento — WhatsApp e Webchat — e começar a vender mais.</p>
+      <div class="ctas">
+        <a class="btn btn-light js-cta" data-loc="final" href="https://wa.me/553140428010?text=Quero%20profissionalizar%20o%20WhatsApp%20da%20minha%20empresa%20com%20o%20ZapTW" target="_blank" rel="noopener">Fale com nosso consultor comercial agora</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span class="footer-brand">ZapTW · por TW Estratégia Digital</span>
+      <div class="footer-links">
+        <a href="https://www.twestrategiadigital.com.br/" target="_blank" rel="noopener">Site institucional</a>
+        <a href="https://zapchat.twestrategiadigital.com.br" target="_blank" rel="noopener">Acessar plataforma</a>
+        <a href="http://atendimento.twestrategiadigital.com.br/" target="_blank" rel="noopener">Suporte</a>
+        <a href="https://wa.me/553140428010">(31) 4042-8010</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> TW Estratégia Digital. Todos os direitos reservados.</span>
+      <span>contato@twestrategiadigital.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-primary js-cta" data-loc="sticky" href="https://wa.me/553140428010?text=Quero%20conhecer%20o%20ZapTW" target="_blank" rel="noopener">Falar no WhatsApp agora</a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile nav (simple show/hide fallback — links already reachable via sticky CTA)
+  // reveal on scroll
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.14});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // network graphic (solution section)
+  (function(){
+    var svg = document.querySelector('.net-box svg');
+    if(!svg) return;
+    var nodesG = svg.querySelector('#nodes');
+    var linesG = svg.querySelector('#lines');
+    var pts = [];
+    for(var i=0;i<16;i++){
+      pts.push({x: 30+Math.random()*340, y: 30+Math.random()*340, b: Math.random()>0.75});
+    }
+    pts.forEach(function(p,i){
+      pts.forEach(function(q,j){
+        if(j<=i) return;
+        var d = Math.hypot(p.x-q.x,p.y-q.y);
+        if(d<130){
+          var line = document.createElementNS('http://www.w3.org/2000/svg','line');
+          line.setAttribute('x1',p.x); line.setAttribute('y1',p.y);
+          line.setAttribute('x2',q.x); line.setAttribute('y2',q.y);
+          linesG.appendChild(line);
+        }
+      });
+    });
+    pts.forEach(function(p){
+      var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx',p.x); c.setAttribute('cy',p.y);
+      c.setAttribute('r', p.b?4:2.4);
+      c.setAttribute('class','node'+(p.b?' b':''));
+      nodesG.appendChild(c);
+    });
+  })();
+
+  // conversion event dispatch for Google Ads / GA4 / Meta Pixel (hook your tag manager to these)
+  window.dataLayer = window.dataLayer || [];
+  document.querySelectorAll('.js-cta').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      window.dataLayer.push({event:'lead_whatsapp', cta_location: btn.dataset.loc || 'unknown'});
+    });
+  });
+  var planos = document.getElementById('planos');
+  if(planos && 'IntersectionObserver' in window){
+    var seen = false;
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting && !seen){ seen = true; window.dataLayer.push({event:'view_planos'}); }
+      });
+    }, {threshold:0.3}).observe(planos);
+  }
+</script>
+
+</body>
+</html>
 
