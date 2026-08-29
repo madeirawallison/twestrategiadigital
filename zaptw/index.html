@@ -7,13 +7,17 @@
 <meta name="description" content="Central de atendimento, CRM, Inteligência Artificial e agora Webchat em uma única plataforma. Pare de perder clientes no WhatsApp. Setup em 24h, sem fidelidade." />
 <link rel="canonical" href="https://www.twestrategiadigital.com.br/zaptw/">
 
-<!-- ============================================================
-  GOOGLE ADS / META ADS — cole as tags de conversão aqui dentro do <head>.
-  Eventos já disparados via dataLayer.push() no fim do arquivo:
-    - "lead_whatsapp"  -> clique em qualquer botão .js-cta
-    - "view_planos"    -> quando a seção #planos entra na tela
-  Basta o gtag/pixel estar carregado para capturar.
-=============================================================== -->
+<!-- Google tag (gtag.js) — conta Google Ads AW-17081065596 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17081065596"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17081065596');
+</script>
+<!-- Eventos de conversão disparados pelo script no fim do arquivo:
+     - "lead_whatsapp"  -> clique em qualquer botão .js-cta (usar como conversão principal)
+     - "view_planos"    -> quando a seção #planos entra na tela (conversão secundária) -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -563,16 +567,25 @@ if('IntersectionObserver' in window){
   });
 })();
 
-// conversion events for Google Ads / GA4 / Meta Pixel
-window.dataLayer = window.dataLayer || [];
+// conversion events for Google Ads (gtag.js) — dispara pelo evento gtag, que o Ads
+// consegue detectar automaticamente ao configurar "rastrear evento específico"
 document.querySelectorAll('.js-cta').forEach(function(btn){
-  btn.addEventListener('click', function(){ window.dataLayer.push({event:'lead_whatsapp', cta_location: btn.dataset.loc || 'unknown'}); });
+  btn.addEventListener('click', function(){
+    if(typeof gtag === 'function'){
+      gtag('event', 'lead_whatsapp', { cta_location: btn.dataset.loc || 'unknown' });
+    }
+  });
 });
 var planosEl = document.getElementById('planos');
 if(planosEl && 'IntersectionObserver' in window){
   var seen=false;
   new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting && !seen){ seen=true; window.dataLayer.push({event:'view_planos'}); } });
+    entries.forEach(function(e){
+      if(e.isIntersecting && !seen){
+        seen=true;
+        if(typeof gtag === 'function'){ gtag('event', 'view_planos', {}); }
+      }
+    });
   }, {threshold:0.3}).observe(planosEl);
 }
 </script>
