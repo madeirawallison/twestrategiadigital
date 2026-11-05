@@ -144,7 +144,11 @@ section{padding:95px 0}
 .ai-cards{display:grid;gap:1rem;margin-top:1.5rem}
 
 /* ================= VIDEOS ================= */
-.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.video-caption span{display:block;font-weight:500;color:var(--muted);font-size:.76rem;margin-top:.15rem}
+.video-more{text-align:center;margin-top:1.8rem;font-size:.9rem;color:var(--muted)}
+.video-more a{color:var(--lilac);font-weight:700;border-bottom:1px solid rgba(216,180,255,.4)}
+.video-more a:hover{color:#fff}
 .video-card{border:1px solid var(--line);background:var(--card);border-radius:28px;padding:.7rem;box-shadow:0 30px 70px rgba(0,0,0,.3)}
 .video-card .frame{border-radius:20px;overflow:hidden;aspect-ratio:9/16;background:#000;position:relative}
 .video-card video{width:100%;height:100%;object-fit:cover}
@@ -392,22 +396,27 @@ footer{padding:34px 0;border-top:1px solid var(--line);background:#060511;color:
     <div class="section-head reveal">
       <span class="pill">Veja na prática</span>
       <h2>O ZapTW explicado em <em>menos de 1 minuto</em>.</h2>
-      <p>Três vídeos rápidos: as dores de quem ainda atende no WhatsApp pessoal, e como o ZapTW resolve isso.</p>
+      <p>Quatro vídeos rápidos: as dores de quem ainda atende no WhatsApp pessoal e como o ZapTW resolve cada uma.</p>
     </div>
     <div class="video-grid reveal">
       <div class="video-card">
-        <div class="frame"><video controls preload="none" poster="img/poster-2.jpg" playsinline><source src="videos/story-zaptw-dores.mp4" type="video/mp4"></video></div>
-        <div class="video-caption">As dores do atendimento amador</div>
+        <div class="frame"><video controls muted preload="none" poster="videos/ZapTW-01-um-numero-para-a-empresa.jpg" playsinline><source src="videos/ZapTW-01-um-numero-para-a-empresa.mp4" type="video/mp4"></video></div>
+        <div class="video-caption">Um número, a equipe inteira<span>Atendimento por setor</span></div>
       </div>
       <div class="video-card">
-        <div class="frame"><video controls preload="none" poster="img/poster-1.jpg" playsinline><source src="videos/story-zaptw.mp4" type="video/mp4"></video></div>
-        <div class="video-caption">Conheça o ZapTW</div>
+        <div class="frame"><video controls muted preload="none" poster="videos/ZapTW-02-o-custo-do-improviso.jpg" playsinline><source src="videos/ZapTW-02-o-custo-do-improviso.mp4" type="video/mp4"></video></div>
+        <div class="video-caption">O custo do improviso<span>As dores do atendimento amador</span></div>
       </div>
       <div class="video-card">
-        <div class="frame"><video controls preload="none" poster="img/poster-3.jpg" playsinline><source src="videos/zaptw-tour.mp4" type="video/mp4"></video></div>
-        <div class="video-caption">Tour completo pela plataforma</div>
+        <div class="frame"><video controls muted preload="none" poster="videos/ZapTW-03-automacao-e-ia.jpg" playsinline><source src="videos/ZapTW-03-automacao-e-ia.mp4" type="video/mp4"></video></div>
+        <div class="video-caption">Automação e IA<span>Atendimento 24h e texto profissional</span></div>
+      </div>
+      <div class="video-card">
+        <div class="frame"><video controls muted preload="none" poster="videos/ZapTW-04-gestao-e-planos.jpg" playsinline><source src="videos/ZapTW-04-gestao-e-planos.mp4" type="video/mp4"></video></div>
+        <div class="video-caption">Gestão e planos<span>Relatórios e investimento</span></div>
       </div>
     </div>
+    <p class="video-more reveal">Quer ver as telas reais? <a href="videos/zaptw-tour.mp4" target="_blank" rel="noopener">Assista ao tour completo pela plataforma</a></p>
   </div>
 </section>
 
