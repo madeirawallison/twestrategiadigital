@@ -92,6 +92,12 @@ section{padding:90px 0}
 .plan .setup{font-size:.88rem;color:#6b5547;margin-bottom:1.2rem}
 .note{text-align:center;color:#6b5547;font-size:.88rem;margin-top:1.6rem;line-height:1.7}
 .deck{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;border:1px solid var(--line);background:linear-gradient(120deg,rgba(242,107,29,.18),rgba(242,107,29,.04));border-radius:26px;padding:1.6rem 2rem}
+.btn-demo{background:#fff6e9;color:#2a170d;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.btn-demo:hover{transform:translateY(-2px);background:#fff}
+.demo-hint{font-size:.8rem;color:var(--muted);margin:-1rem 0 1.6rem;line-height:1.6;max-width:560px}
+.demo-band{margin-top:2.6rem;border:1px solid rgba(242,107,29,.45);background:linear-gradient(135deg,rgba(242,107,29,.18),rgba(255,194,26,.06));border-radius:24px;padding:1.6rem 1.8rem;display:flex;align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap}
+.demo-band h3{font-size:1.3rem;margin-bottom:.35rem}
+.demo-band p{color:var(--muted);line-height:1.6;font-size:.92rem;max-width:620px}
 .cta{text-align:center}
 .cta h2{max-width:760px;margin:1rem auto}
 .cta p{color:var(--muted);max-width:620px;margin:0 auto 2rem;line-height:1.8}
@@ -139,8 +145,9 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
       <p class="lead">Cardápio, pedido, pagamento por Pix ou cartão, cozinha, entrega, retirada e balcão em uma só plataforma. Você paga uma mensalidade fixa, não uma porcentagem de cada venda.</p>
       <div class="hero-actions">
         <a class="btn btn-primary js-cta" data-loc="hero" href="https://wa.me/553140428010?text=Quero%20conhecer%20o%20ZapDelivery" target="_blank">Falar com um consultor</a>
-        <a class="btn btn-secondary" href="#planos">Ver planos e preços</a>
+        <a class="btn btn-demo js-demo" data-loc="hero" href="https://wa.me/553140428030?text=Oi" target="_blank" rel="noopener">🍔 Faça um pedido de teste</a>
       </div>
+      <p class="demo-hint">Teste no seu WhatsApp: a loja de demonstração atende na hora. Pode ir até o link de pagamento, não precisa pagar.</p>
       <div class="stats">
         <div class="stat"><strong>0% de comissão</strong><span>mensalidade fixa</span></div>
         <div class="stat"><strong>Pix e cartão</strong><span>via Mercado Pago</span></div>
@@ -175,6 +182,13 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
       <div class="step reveal"><i>4</i><div><h4>Vai para a cozinha</h4><span>A comanda entra no atendimento e pode ser impressa na térmica de 58 mm.</span></div></div>
       <div class="step reveal"><i>5</i><div><h4>Cliente avisado</h4><span>"Em preparo", "saiu para entrega" e "liberado no balcão", enviados a cada etapa do Kanban.</span></div></div>
       <div class="step reveal"><i>6</i><div><h4>Não pagou?</h4><span>O link expira, o cliente é avisado e o pedido vai para "pendentes" para a equipe recuperar a venda.</span></div></div>
+    </div>
+    <div class="demo-band reveal">
+      <div>
+        <h3>Veja funcionando no seu WhatsApp</h3>
+        <p>Mande um "oi" para a nossa hamburgueria de demonstração e faça um pedido do começo ao fim: cardápio, entrega ou retirada e link de pagamento. Não precisa pagar, é só para conhecer.</p>
+      </div>
+      <a class="btn btn-primary js-demo" data-loc="como-funciona" href="https://wa.me/553140428030?text=Oi" target="_blank" rel="noopener">🍔 Fazer pedido de teste</a>
     </div>
   </div>
 </section>
@@ -274,6 +288,12 @@ if('IntersectionObserver' in window){
 document.querySelectorAll('.js-cta').forEach(function(btn){
   btn.addEventListener('click', function(){
     if(typeof gtag === 'function'){ gtag('event', 'lead_whatsapp', { cta_location: 'zapdelivery-' + (btn.dataset.loc || 'unknown') }); }
+  });
+});
+// pedido de teste na loja de demonstração (evento separado, não conta como contato comercial)
+document.querySelectorAll('.js-demo').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(typeof gtag === 'function'){ gtag('event', 'demo_whatsapp', { cta_location: 'zapdelivery-' + (btn.dataset.loc || 'unknown') }); }
   });
 });
 var planosEl = document.getElementById('planos');
