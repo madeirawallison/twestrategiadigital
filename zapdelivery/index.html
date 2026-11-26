@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ZapDelivery | Delivery pelo WhatsApp sem comissão — TW Estratégia Digital</title>
-<meta name="description" content="Pedido, pagamento por Pix ou cartão, cozinha, entrega, balcão e relatórios no WhatsApp do seu restaurante. Sem comissão por pedido. A partir de R$ 350/mês." />
+<meta name="description" content="Delivery pelo WhatsApp, cardápio por QR Code nas mesas, comandas, garçom, cozinha com impressão, PDV no balcão e relatórios. Sem limite de pedidos e sem comissão por pedido. A partir de R$ 300/mês, apenas R$ 10 por dia, sem fidelidade." />
 <link rel="canonical" href="https://www.twestrategiadigital.com.br/zapdelivery/">
 <link rel="icon" href="img/icone.png">
 <meta property="og:title" content="ZapDelivery — o pedido chega pago na cozinha">
@@ -106,6 +106,163 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
 .footer-inner a{margin-right:1rem}.footer-inner a:hover{color:#fff}
 .sticky-cta{display:none;position:fixed;left:0;right:0;bottom:0;padding:.8rem 4%;background:rgba(20,11,6,.92);border-top:1px solid var(--line);z-index:60}
 .sticky-cta .btn{width:100%}
+/* faixa rolando */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(242,107,29,.16),rgba(255,194,26,.08));padding:.95rem 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:2.4rem;width:max-content;animation:mq 38s linear infinite;font-weight:800;font-size:.92rem;white-space:nowrap}
+.marquee-track span{display:inline-flex;align-items:center;gap:.5rem}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* diferenciais */
+.diffs{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.diff{border-radius:24px;padding:1.6rem 1.4rem;background:linear-gradient(150deg,rgba(242,107,29,.22),rgba(242,107,29,.04));border:1px solid rgba(242,107,29,.38);position:relative;overflow:hidden}
+.diff b{display:block;font-size:clamp(1.9rem,3vw,2.5rem);letter-spacing:-.03em;line-height:1;color:var(--yellow)}
+.diff h3{font-size:1.05rem;margin:.7rem 0 .35rem}
+.diff p{color:var(--muted);font-size:.9rem;line-height:1.6}
+.diff::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(255,194,26,.25),transparent 70%)}
+.badge-new{display:inline-block;background:var(--yellow);color:#2a170d;font-size:.66rem;font-weight:900;letter-spacing:.12em;border-radius:6px;padding:.18rem .45rem;vertical-align:middle;margin-left:.4rem}
+/* celular */
+.phone{width:min(330px,100%);margin:0 auto;border-radius:38px;padding:12px;background:#0b0604;border:1px solid rgba(255,246,233,.18);box-shadow:0 40px 90px rgba(0,0,0,.55),inset 0 0 0 2px #1f130c}
+.phone-screen{border-radius:28px;overflow:hidden;height:560px;display:flex;flex-direction:column;background:#efe7dc}
+.ph-top{display:flex;align-items:center;gap:.6rem;padding:.8rem .9rem;background:#1f6f5c;color:#fff;font-size:.86rem;font-weight:700}
+.ph-top i{width:32px;height:32px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-style:normal}
+.ph-top small{display:block;font-weight:500;opacity:.8;font-size:.7rem}
+.ph-body{flex:1;padding:.9rem .7rem;display:flex;flex-direction:column;gap:.45rem;overflow:hidden;justify-content:flex-end}
+.msg{max-width:84%;padding:.5rem .7rem;border-radius:12px;font-size:.8rem;line-height:1.45;color:#1d1d1d;background:#fff;box-shadow:0 1px 1px rgba(0,0,0,.08);opacity:0;transform:translateY(10px) scale(.98);transition:.35s ease}
+.msg.me{align-self:flex-end;background:#d9fdd3}
+.msg.show{opacity:1;transform:none}
+.msg b{color:#c2410c}
+.msg .paybtn{display:block;margin-top:.4rem;text-align:center;background:#009ee3;color:#fff;border-radius:8px;padding:.35rem;font-weight:700}
+.typing{align-self:flex-start;background:#fff;border-radius:12px;padding:.5rem .7rem;display:none;gap:3px}
+.typing.on{display:flex}
+.typing span{width:6px;height:6px;border-radius:50%;background:#999;animation:tp 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes tp{50%{opacity:.3;transform:translateY(-2px)}}
+/* cardápio da mesa */
+.menu-screen{background:#fff8f0;color:#2a170d}
+.mn-head{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;padding:1rem .9rem .8rem}
+.mn-head b{font-size:1rem;display:block}.mn-head small{opacity:.9;font-size:.74rem}
+.mn-tabs{display:flex;gap:.4rem;padding:.6rem .7rem;font-size:.7rem;font-weight:800}
+.mn-tabs span{padding:.3rem .6rem;border-radius:999px;background:#f3e2d0}.mn-tabs span.on{background:#2a170d;color:#fff}
+.mn-list{flex:1;padding:0 .7rem;display:flex;flex-direction:column;gap:.5rem}
+.mn-item{display:grid;grid-template-columns:46px 1fr auto;gap:.6rem;align-items:center;background:#fff;border:1px solid #f0dfcc;border-radius:14px;padding:.5rem;font-size:.78rem}
+.mn-item .ic{width:46px;height:46px;border-radius:12px;background:#ffe8d4;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.mn-item small{display:block;color:#8a7262}
+.mn-item .add{width:28px;height:28px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;transition:.2s}
+.mn-item.pick{border-color:var(--orange);box-shadow:0 0 0 3px rgba(242,107,29,.18)}
+.mn-item.pick .add{transform:scale(1.2);background:#16a34a}
+.mn-actions{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;padding:.6rem .7rem}
+.mn-actions span{text-align:center;font-size:.72rem;font-weight:800;border-radius:10px;padding:.5rem;background:#2a170d;color:#fff;transition:.25s}
+.mn-actions span.flash{background:#16a34a;transform:scale(1.05)}
+.mn-cart{margin:0 .7rem .8rem;background:var(--orange);color:#fff;border-radius:14px;padding:.7rem .9rem;display:flex;justify-content:space-between;font-weight:800;font-size:.82rem}
+.toast{position:absolute;left:50%;top:84px;transform:translate(-50%,-10px);background:#16a34a;color:#fff;font-size:.74rem;font-weight:800;padding:.45rem .8rem;border-radius:999px;opacity:0;transition:.3s;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* pedido digital */
+.order-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:3rem;align-items:center}
+.tabs{display:inline-flex;padding:.3rem;border-radius:999px;background:rgba(255,246,233,.07);border:1px solid var(--line);margin-bottom:1.4rem}
+.tabs button{font:inherit;font-weight:800;font-size:.85rem;border:0;background:transparent;color:var(--muted);padding:.6rem 1.1rem;border-radius:999px;cursor:pointer}
+.tabs button.on{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff}
+.tabpane{display:none}.tabpane.on{display:block}
+.checks{list-style:none;margin:1.2rem 0 1.6rem}
+.checks li{padding:.5rem 0 .5rem 1.9rem;position:relative;line-height:1.55;color:var(--cream)}
+.checks li::before{content:"✓";position:absolute;left:0;top:.45rem;width:22px;height:22px;border-radius:50%;background:rgba(242,107,29,.22);color:var(--orange2);font-weight:900;font-size:.75rem;display:flex;align-items:center;justify-content:center}
+.phone-wrap{position:relative}
+/* mesas */
+.mesas-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.feat .card{transition:.25s}.feat .card:hover{transform:translateY(-4px);border-color:var(--orange)}
+.feat .ico{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:.8rem}
+.board{position:sticky;top:100px;background:#2a170d;color:var(--cream);border-radius:26px;padding:1.3rem;box-shadow:0 30px 60px -30px rgba(42,23,13,.7)}
+.board h4{font-size:.8rem;letter-spacing:.12em;color:var(--orange2);margin-bottom:.9rem}
+.tables{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+.tb{border-radius:14px;padding:.65rem .5rem;text-align:center;font-weight:800;font-size:.85rem;border:1px solid rgba(255,246,233,.14);background:rgba(255,246,233,.05);transition:.4s}
+.tb small{display:block;font-weight:600;font-size:.66rem;color:var(--muted);margin-top:.15rem}
+.tb.busy{background:rgba(242,107,29,.25);border-color:var(--orange)}
+.tb.call{background:rgba(255,194,26,.3);border-color:var(--yellow);animation:pulse 1s infinite}
+.tb.bill{background:rgba(22,163,74,.28);border-color:#22c55e}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(255,194,26,.15)}}
+.legend{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.9rem;font-size:.7rem;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:.3rem;vertical-align:middle}
+.ticket{margin-top:1rem;background:#fff;color:#1d1d1d;border-radius:12px;padding:.9rem;font-family:ui-monospace,Consolas,monospace;font-size:.74rem;line-height:1.55;border-top:4px dashed #ddd}
+.ticket b{font-family:'Plus Jakarta Sans',sans-serif}
+.ticket hr{border:0;border-top:1px dashed #bbb;margin:.4rem 0}
+/* pdv */
+.pdv{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+.pdv-screen{border-radius:22px;border:1px solid var(--line);background:#1b0f09;padding:1rem;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.pdv-bar{display:flex;gap:.35rem;margin-bottom:.8rem}.pdv-bar i{width:10px;height:10px;border-radius:50%;background:#3a2418}
+.pdv-cols{display:grid;grid-template-columns:1.3fr 1fr;gap:.8rem}
+.pdv-prods{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem}
+.pdv-prods span{background:rgba(255,246,233,.06);border:1px solid var(--line);border-radius:12px;padding:.6rem .3rem;text-align:center;font-size:.72rem;font-weight:700}
+.pdv-prods span em{display:block;font-style:normal;font-size:1.2rem}
+.pdv-cart{background:rgba(255,246,233,.05);border-radius:14px;padding:.8rem;font-size:.76rem}
+.pdv-cart div{display:flex;justify-content:space-between;padding:.25rem 0;border-bottom:1px solid var(--line)}
+.pdv-cart .tot{font-weight:800;font-size:.95rem;border:0;margin-top:.3rem;color:var(--yellow)}
+.pdv-pay{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;margin-top:.6rem}
+.pdv-pay span{background:var(--orange);border-radius:8px;text-align:center;padding:.35rem;font-weight:800;font-size:.68rem}
+/* antes e depois */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:980px;margin:0 auto}
+.vs .col{border-radius:24px;padding:1.6rem;border:1px solid var(--line)}
+.vs .bad{background:rgba(255,246,233,.03)}
+.vs .good{background:linear-gradient(150deg,rgba(242,107,29,.2),rgba(242,107,29,.04));border-color:rgba(242,107,29,.45)}
+.vs h3{margin-bottom:.8rem}
+.vs li{list-style:none;padding:.55rem 0 .55rem 1.7rem;position:relative;border-bottom:1px solid var(--line);font-size:.93rem;line-height:1.5}
+.vs .bad li{color:var(--muted)}
+.vs .bad li::before{content:"✕";position:absolute;left:0;color:#ef4444;font-weight:900}
+.vs .good li::before{content:"✓";position:absolute;left:0;color:var(--yellow);font-weight:900}
+/* faq */
+.faq{max-width:820px;margin:0 auto}
+.faq details{border:1px solid #f0dfcc;background:#fff;border-radius:18px;padding:1.05rem 1.3rem;margin-bottom:.7rem}
+.faq summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::after{content:"+";color:var(--orange);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:#6b5547;line-height:1.7;margin-top:.7rem;font-size:.94rem}
+/* preço */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 1.4rem;max-width:900px;margin:0 auto}
+.price-grid .calc,.price-grid .impl-note{grid-column:1/-1}
+.price-card{position:relative;background:#fff;border:1px solid #f0dfcc;border-radius:28px;padding:2.2rem 1.8rem 1.8rem;text-align:center;box-shadow:0 10px 30px -18px rgba(59,31,20,.35);color:var(--coffee)}
+.price-card.hot{border:2px solid var(--orange);box-shadow:0 30px 60px -30px rgba(242,107,29,.6)}
+.price-card .tag.tag-soft{background:#2a170d}
+.setup-box{margin:1rem 0 0;background:#fff7ee;border:1px dashed #f3c9a3;border-radius:14px;padding:.75rem;font-size:.86rem;line-height:1.55;color:#6b5547}
+.setup-box b{color:var(--coffee)}
+.impl-note{text-align:center;color:#6b5547;font-size:.9rem;line-height:1.6;margin:-.4rem 0 0}
+.price-card .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.12em;border-radius:999px;padding:.35rem .9rem}
+.perday{display:flex;align-items:baseline;justify-content:center;gap:.45rem;flex-wrap:wrap}
+.perday small{font-size:1rem;color:#8a7262;font-weight:600}
+.perday b{font-size:clamp(3.6rem,7vw,4.8rem);letter-spacing:-.05em;line-height:1;color:var(--orange)}
+.perday span{font-size:1.3rem;font-weight:800}
+.permonth{display:inline-block;margin:.6rem 0 1.2rem;background:#fff1e3;border-radius:999px;padding:.4rem 1rem;font-weight:800;color:#6b5547}
+.price-flags{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.4rem}
+.price-flags span{border:1px solid #f0dfcc;border-radius:12px;padding:.6rem;font-weight:800;font-size:.92rem}
+.calc{background:#2a170d;color:var(--cream);border-radius:28px;padding:1.8rem}
+.calc h3{font-size:1.25rem;margin:.8rem 0 .4rem}
+.calc-val{font-size:2.3rem;font-weight:800;color:var(--yellow);letter-spacing:-.03em}
+.calc input[type=range]{width:100%;margin:1rem 0 .3rem;accent-color:var(--orange);height:6px;cursor:pointer}
+.calc-scale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted)}
+.calc-rows{margin-top:1.2rem}
+.calc-rows div{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.calc-rows b{white-space:nowrap}.calc-rows .bad{color:#f87171;text-decoration:line-through}
+.calc-rows .save{border:0;margin-top:.4rem;background:rgba(242,107,29,.2);border-radius:14px;padding:.85rem 1rem;font-weight:800}
+.calc-rows .save b{color:var(--yellow);font-size:1.2rem}
+.calc-note{font-size:.74rem;color:var(--muted);margin-top:.8rem;line-height:1.5}
+.included{margin-top:1.6rem;background:linear-gradient(150deg,#2a170d,#140b06);color:var(--cream);border-radius:28px;padding:2rem}
+.included-head{text-align:center;margin-bottom:1.4rem}
+.included-head h3{font-size:clamp(1.3rem,2.4vw,1.8rem);margin-top:.7rem}
+.included .pill{background:transparent}
+.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.inc-grid div{position:relative;border:1px solid var(--line);background:rgba(255,246,233,.05);border-radius:18px;padding:1rem 1rem 1rem 2.9rem;transition:.25s}
+.inc-grid div:hover{border-color:var(--orange);transform:translateY(-3px)}
+.inc-grid i{position:absolute;left:1rem;top:1rem;width:22px;height:22px;border-radius:50%;background:#16a34a;color:#fff;font-style:normal;font-weight:900;font-size:.75rem;display:flex;align-items:center;justify-content:center}
+.inc-grid b{display:block;font-size:.95rem;margin-bottom:.2rem}
+.inc-grid span{color:var(--muted);font-size:.84rem;line-height:1.5}
+@media(max-width:980px){.price-grid{grid-template-columns:1fr}.inc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.inc-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.marquee-track,.tb.call,.typing span{animation:none}}
+@media(max-width:980px){
+  .diffs{grid-template-columns:repeat(2,1fr)}
+  .order-grid,.mesas-grid,.pdv,.vs{grid-template-columns:1fr}
+  .board{position:static}
+  .pdv-cols{grid-template-columns:1fr}
+}
+@media(max-width:560px){.diffs,.feat{grid-template-columns:1fr}.tabs button{padding:.55rem .8rem;font-size:.8rem}}
 .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
 .reveal.is-visible{opacity:1;transform:none}
 @media(max-width:980px){
@@ -127,9 +284,9 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
   <div class="container nav-inner">
     <a href="#top"><img src="img/logo.png" alt="ZapDelivery"></a>
     <div class="nav-links">
-      <a href="#como-funciona">Como funciona</a>
+      <a href="#pedido-digital">Pedido digital</a>
+      <a href="#mesas">Mesas e Balcão</a>
       <a href="#recursos">Recursos</a>
-      <a href="#videos">Vídeos</a>
       <a href="#planos">Planos</a>
       <a class="nav-back" href="https://www.twestrategiadigital.com.br/" target="_blank" rel="noopener">← Site da TW</a>
       <a href="https://wa.me/553140428010?text=Quero%20conhecer%20o%20ZapDelivery" target="_blank" class="btn btn-primary btn-sm js-cta" data-loc="nav">Falar no WhatsApp</a>
@@ -140,9 +297,9 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
 <header class="hero" id="top">
   <div class="container hero-grid">
     <div>
-      <span class="pill">Delivery pelo WhatsApp · sem comissão</span>
-      <h1>O cliente pede no WhatsApp. O pedido chega <span class="hl">pago</span> na cozinha.</h1>
-      <p class="lead">Cardápio, pedido, pagamento por Pix ou cartão, cozinha, entrega, retirada e balcão em uma só plataforma. Você paga uma mensalidade fixa, não uma porcentagem de cada venda.</p>
+      <span class="pill">Delivery · Mesas · Balcão <span class="badge-new">NOVO</span></span>
+      <h1>O cliente pede no WhatsApp ou na mesa. O pedido chega <span class="hl">certo</span> na cozinha.</h1>
+      <p class="lead">Delivery pelo WhatsApp com pagamento automático, cardápio por QR Code nas mesas, comandas, garçom, PDV no balcão e relatórios em uma só plataforma. <b style="color:#fff">Sem limite de pedidos e sem comissão por pedido.</b></p>
       <div class="hero-actions">
         <a class="btn btn-primary js-cta" data-loc="hero" href="https://wa.me/553140428010?text=Quero%20conhecer%20o%20ZapDelivery" target="_blank">Falar com um consultor</a>
         <a class="btn btn-demo js-demo" data-loc="hero" href="https://wa.me/553140428030?text=Oi" target="_blank" rel="noopener">🍔 Faça um pedido de teste</a>
@@ -150,14 +307,33 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
       <p class="demo-hint">Teste no seu WhatsApp: a loja de demonstração atende na hora. Pode ir até o link de pagamento, não precisa pagar.</p>
       <div class="stats">
         <div class="stat"><strong>0% de comissão</strong><span>mensalidade fixa</span></div>
+        <div class="stat"><strong>Pedidos ilimitados</strong><span>sem teto no mês</span></div>
+        <div class="stat"><strong>QR na mesa</strong><span>pede e chama o garçom</span></div>
         <div class="stat"><strong>Pix e cartão</strong><span>via Mercado Pago</span></div>
-        <div class="stat"><strong>100% nuvem</strong><span>web e celular</span></div>
-        <div class="stat"><strong>Implantação</strong><span>assistida por nós</span></div>
       </div>
     </div>
     <video class="hero-video" src="videos/ZapDelivery-01-do-oi-ao-pago.mp4" poster="videos/ZapDelivery-01-do-oi-ao-pago.jpg" autoplay muted loop playsinline preload="metadata"></video>
   </div>
 </header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>📲 Pedido pelo WhatsApp</span><span>🔳 QR Code por mesa</span><span>🙋 Chamar o garçom</span><span>🧾 Pedir a conta</span><span>🍽️ Comandas por mesa</span><span>👨‍🍳 Tela da cozinha</span><span>🖨️ Impressão automática</span><span>🏪 PDV no balcão</span><span>💳 Pix e cartão</span><span>➗ Divisão da conta</span><span>💰 Comissão do garçom</span><span>📊 Relatórios</span><span>♾️ Sem limite de pedidos</span><span>🚫 Sem comissão por pedido</span>
+    <span>📲 Pedido pelo WhatsApp</span><span>🔳 QR Code por mesa</span><span>🙋 Chamar o garçom</span><span>🧾 Pedir a conta</span><span>🍽️ Comandas por mesa</span><span>👨‍🍳 Tela da cozinha</span><span>🖨️ Impressão automática</span><span>🏪 PDV no balcão</span><span>💳 Pix e cartão</span><span>➗ Divisão da conta</span><span>💰 Comissão do garçom</span><span>📊 Relatórios</span><span>♾️ Sem limite de pedidos</span><span>🚫 Sem comissão por pedido</span>
+  </div>
+</div>
+
+<section id="diferenciais">
+  <div class="container">
+    <div class="section-head reveal"><span class="pill">Por que o ZapDelivery</span><h2>Quanto mais você vende, <span class="hl">mais sobra para você</span></h2><p>Nos aplicativos de delivery, cada pedido leva uma parte da sua margem. Aqui o preço é fixo, não importa se foram 100 ou 10 mil pedidos no mês.</p></div>
+    <div class="diffs">
+      <div class="diff reveal"><b>∞</b><h3>Sem limite de pedidos</h3><p>Delivery, mesa e balcão sem teto mensal. O sábado cheio não muda a sua conta.</p></div>
+      <div class="diff reveal"><b>0%</b><h3>Sem comissão por pedido</h3><p>Nenhuma porcentagem sobre as suas vendas. O dinheiro do Pix e do cartão cai na sua conta.</p></div>
+      <div class="diff reveal"><b>R$ 10</b><h3>Por dia, tudo incluído</h3><p>Planos a partir de R$ 300 por mês, sem fidelidade. Você sabe quanto vai pagar antes de abrir a loja.</p></div>
+      <div class="diff reveal"><b>1:1</b><h3>Implantação assistida</h3><p>A gente cadastra o cardápio, monta o fluxo, configura as mesas e treina a equipe.</p></div>
+    </div>
+  </div>
+</section>
 
 <section class="band" id="problema">
   <div class="container">
@@ -169,6 +345,71 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
       <div class="card reveal"><span class="num">04</span><h3>Fim do dia no escuro</h3><p>Quanto vendeu, em quê, por qual forma de pagamento? Só somando na mão.</p></div>
     </div>
     <p class="quote reveal">"Não é falta de vontade da equipe. É falta de um sistema no canal em que o cliente compra."</p>
+  </div>
+</section>
+
+<section id="pedido-digital">
+  <div class="container order-grid">
+    <div class="reveal">
+      <span class="pill">Pedido digital</span>
+      <h2>O seu cliente faz o pedido sozinho, do jeito que preferir</h2>
+      <p class="lead">Sem baixar aplicativo e sem cadastro. Em casa, pelo WhatsApp que ele já usa. No salão, pelo QR Code da mesa.</p>
+      <div class="tabs" role="tablist">
+        <button type="button" class="on" data-tab="whats" role="tab" aria-selected="true">📲 Delivery no WhatsApp</button>
+        <button type="button" data-tab="mesa" role="tab" aria-selected="false">🔳 Na mesa, por QR</button>
+      </div>
+      <div class="tabpane on" data-pane="whats">
+        <ul class="checks">
+          <li>Manda um "oi" e recebe o cardápio com os números dos itens.</li>
+          <li>Digita o pedido do jeito dele: "2x 03 e uma coca lata". O sistema confere itens e preços.</li>
+          <li>Escolhe entrega ou retirada e paga por Pix ou cartão no link.</li>
+          <li>Recebe cada etapa: em preparo, saiu para entrega, liberado no balcão.</li>
+        </ul>
+        <a class="btn btn-demo js-demo" data-loc="pedido-digital" href="https://wa.me/553140428030?text=Oi" target="_blank" rel="noopener">🍔 Faça um pedido de teste</a>
+        <p class="demo-hint" style="margin:1rem 0 0">Loja de demonstração (31) 4042-8030. Pode ir até o link de pagamento, não precisa pagar.</p>
+      </div>
+      <div class="tabpane" data-pane="mesa">
+        <ul class="checks">
+          <li>Aponta a câmera para o QR Code da mesa e o cardápio abre no navegador.</li>
+          <li>Escolhe os itens, escreve observações ("sem cebola") e envia direto para a cozinha.</li>
+          <li>Chama o garçom e pede a conta pelo próprio celular.</li>
+          <li>Você decide, mesa por mesa, se o QR aceita pedido ou só mostra o cardápio, e se o pedido exige comanda aberta pelo garçom.</li>
+        </ul>
+        <a class="btn btn-primary js-cta" data-loc="pedido-digital-mesa" href="https://wa.me/553140428010?text=Quero%20ver%20o%20card%C3%A1pio%20por%20QR%20Code%20nas%20mesas%20do%20ZapDelivery" target="_blank">Quero ver o QR na mesa</a>
+      </div>
+    </div>
+    <div class="phone-wrap reveal">
+      <div class="phone" data-pane="whats" id="phoneWhats">
+        <div class="phone-screen">
+          <div class="ph-top"><i>🍔</i><div>Hamburgueria Demo<small>online</small></div></div>
+          <div class="ph-body" id="chat">
+            <div class="msg me">Oi</div>
+            <div class="msg">Olá! 👋 Aqui está o cardápio:<br><b>01</b> X-Burger · R$ 24<br><b>03</b> X-Bacon · R$ 29<br><b>10</b> Batata · R$ 15<br><b>20</b> Coca lata · R$ 7<br>Mande os números do pedido.</div>
+            <div class="msg me">2x 03 e 1 coca lata</div>
+            <div class="msg">Confere? ✅<br>2x X-Bacon · R$ 58<br>1x Coca lata · R$ 7<br>Entrega ou retirada?</div>
+            <div class="msg me">Entrega</div>
+            <div class="msg">Total com entrega: <b>R$ 71,00</b><span class="paybtn">Pagar com Pix ou cartão</span></div>
+            <div class="msg">✅ Pagamento aprovado! Seu pedido já está <b>em preparo</b>. 👨‍🍳</div>
+            <div class="typing" id="typing"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="phone" data-pane="mesa" id="phoneMesa" style="display:none">
+        <div class="phone-screen menu-screen" style="position:relative">
+          <div class="mn-head"><b>Hamburgueria Demo</b><small>Mesa 07 · Comanda aberta</small></div>
+          <div class="mn-tabs"><span class="on">Lanches</span><span>Porções</span><span>Bebidas</span></div>
+          <div class="mn-list">
+            <div class="mn-item" data-i="0"><span class="ic">🍔</span><div><b>X-Bacon</b><small>pão, carne 150 g, bacon</small></div><span class="add">+</span></div>
+            <div class="mn-item" data-i="1"><span class="ic">🍟</span><div><b>Batata média</b><small>com cheddar e bacon</small></div><span class="add">+</span></div>
+            <div class="mn-item" data-i="2"><span class="ic">🥤</span><div><b>Coca lata</b><small>350 ml</small></div><span class="add">+</span></div>
+            <div class="mn-item" data-i="3"><span class="ic">🍺</span><div><b>Chopp 300 ml</b><small>pilsen</small></div><span class="add">+</span></div>
+          </div>
+          <div class="mn-actions"><span id="btnGarcom">🙋 Chamar garçom</span><span id="btnConta">🧾 Pedir a conta</span></div>
+          <div class="mn-cart"><span id="cartQtd">Carrinho vazio</span><span id="cartTot">R$ 0,00</span></div>
+          <div class="toast" id="toast">Pedido enviado para a cozinha</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -193,19 +434,101 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
   </div>
 </section>
 
+<section class="light" id="mesas">
+  <div class="container">
+    <div class="section-head reveal"><span class="pill">Novo módulo <span class="badge-new">NOVO</span></span><h2>Mesas e Balcão: o salão inteiro no mesmo sistema do delivery</h2><p>Do QR Code na mesa ao fechamento da conta. O garçom anota menos, a cozinha recebe tudo impresso e você vê o salão em tempo real.</p></div>
+    <div class="mesas-grid">
+      <div class="feat">
+        <div class="card reveal"><div class="ico">🔳</div><h3>QR Code por mesa</h3><p>O cliente abre o cardápio no celular, faz o pedido, chama o garçom e pede a conta. Você define o que cada mesa pode fazer.</p></div>
+        <div class="card reveal"><div class="ico">🍽️</div><h3>Comandas por mesa</h3><p>Mais de uma comanda na mesma mesa: cada grupo ou pessoa com a sua conta, sem confusão na hora de pagar.</p></div>
+        <div class="card reveal"><div class="ico">🧑‍🍳</div><h3>Garçom com código e área</h3><p>Cada garçom entra com o próprio código, atende a sua área e tem a comissão calculada sozinha.</p></div>
+        <div class="card reveal"><div class="ico">🖨️</div><h3>Tela da cozinha com impressão</h3><p>O pedido aparece na tela da cozinha e sai impresso automaticamente, com as observações do cliente.</p></div>
+        <div class="card reveal"><div class="ico">🧾</div><h3>Fechamento de conta</h3><p>Taxa de serviço, divisão da conta e várias formas de pagamento na mesma conta: Pix, cartão e dinheiro.</p></div>
+        <div class="card reveal"><div class="ico">🔀</div><h3>Transferir e juntar comandas</h3><p>O cliente mudou de mesa ou dois grupos se juntaram? Transfira ou junte as comandas em segundos.</p></div>
+        <div class="card reveal" style="grid-column:1/-1"><div class="ico">📊</div><h3>Relatórios do salão</h3><p>Vendas por mesa, por garçom e por forma de pagamento, comissões e itens mais pedidos, junto com os números do delivery.</p></div>
+      </div>
+      <div class="board reveal" aria-label="Exemplo do mapa de mesas">
+        <h4>SALÃO AGORA</h4>
+        <div class="tables" id="tables">
+          <div class="tb busy">01<small>2 comandas</small></div><div class="tb">02<small>livre</small></div><div class="tb busy">03<small>R$ 86</small></div>
+          <div class="tb">04<small>livre</small></div><div class="tb busy">05<small>R$ 142</small></div><div class="tb busy">06<small>R$ 54</small></div>
+          <div class="tb busy">07<small>R$ 71</small></div><div class="tb">08<small>livre</small></div><div class="tb busy">09<small>R$ 39</small></div>
+        </div>
+        <div class="legend"><span><i style="background:#f26b1d"></i>ocupada</span><span><i style="background:#ffc21a"></i>chamando garçom</span><span><i style="background:#22c55e"></i>pediu a conta</span></div>
+        <div class="ticket" id="ticket">
+          <b>COZINHA · MESA 07</b><br>Garçom: Ana (cód. 12)<hr>2x X-Bacon<br>&nbsp;&nbsp;obs: sem cebola<br>1x Batata média<br>1x Coca lata<hr>Comanda 07-A · 20:41
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pdv">
+  <div class="container pdv">
+    <div class="reveal">
+      <span class="pill">Balcão</span>
+      <h2>PDV no balcão: venda rápida para quem pede ali na hora</h2>
+      <p class="lead">O atendente lança o pedido em poucos toques, registra Pix, débito, crédito ou dinheiro e o pedido vai para a cozinha junto com os do delivery e das mesas.</p>
+      <ul class="checks">
+        <li>Cardápio na tela, com busca e categorias.</li>
+        <li>Nome e telefone do cliente para avisar quando ficar pronto.</li>
+        <li>Mesmo caixa, mesma cozinha e mesmos relatórios do delivery e do salão.</li>
+      </ul>
+    </div>
+    <div class="pdv-screen reveal" aria-label="Exemplo da tela do PDV">
+      <div class="pdv-bar"><i></i><i></i><i></i></div>
+      <div class="pdv-cols">
+        <div class="pdv-prods">
+          <span><em>🍔</em>X-Burger</span><span><em>🥓</em>X-Bacon</span><span><em>🍟</em>Batata</span>
+          <span><em>🥤</em>Refri</span><span><em>🍺</em>Chopp</span><span><em>🍨</em>Sorvete</span>
+        </div>
+        <div class="pdv-cart">
+          <div><span>1x X-Bacon</span><span>29,00</span></div>
+          <div><span>1x Batata</span><span>15,00</span></div>
+          <div><span>2x Refri</span><span>14,00</span></div>
+          <div class="tot"><span>Total</span><span>R$ 58,00</span></div>
+          <div class="pdv-pay"><span>Pix</span><span>Crédito</span><span>Débito</span><span>Dinheiro</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="light" id="recursos">
   <div class="container">
-    <div class="section-head reveal"><span class="pill">Recursos</span><h2>Tudo o que o seu delivery precisa, no mesmo WhatsApp</h2></div>
+    <div class="section-head reveal"><span class="pill">Recursos</span><h2>Tudo o que o seu restaurante precisa, em um só lugar</h2></div>
     <div class="grid3">
       <div class="card reveal"><h3>🍔 Cardápio no sistema</h3><p>Itens, preços e categorias. Marque "esgotado" com um clique e o pedido já recusa o item.</p></div>
       <div class="card reveal"><h3>💳 Pagamento confirmado sozinho</h3><p>Pix e cartão pelo Mercado Pago, direto na sua conta. Sem conferir comprovante.</p></div>
       <div class="card reveal"><h3>📋 Kanban da cozinha</h3><p>Aguardando pagamento → em preparo → saiu ou liberado → entregue. Etiqueta de ENTREGA ou RETIRADA em cada card.</p></div>
-      <div class="card reveal"><h3>🏪 Venda balcão</h3><p>O atendente lança o pedido com nome e telefone e registra Pix, débito, crédito ou dinheiro.</p></div>
+      <div class="card reveal"><h3>♾️ Sem limite de pedidos</h3><p>Delivery, mesa e balcão sem teto mensal e sem comissão. O preço não sobe porque você vendeu mais.</p></div>
       <div class="card reveal"><h3>🖨️ Comanda térmica</h3><p>Impressão em 58 mm pelo computador ou pelo celular, em impressora Bluetooth ou USB.</p></div>
       <div class="card reveal"><h3>📊 Relatórios</h3><p>Vendas do dia, fechamento de caixa, mais vendidos, tempo de preparo e entrega, horário de pico. Exporta para Excel.</p></div>
       <div class="card reveal"><h3>👥 Equipe no mesmo número</h3><p>Atendentes, cozinha e entrega no mesmo WhatsApp, cada um com o seu acesso.</p></div>
       <div class="card reveal"><h3>🗂️ Histórico do cliente</h3><p>Pedidos e conversas ficam no contato, com tags de quem compra online e no balcão.</p></div>
       <div class="card reveal"><h3>🤖 Atende fora do horário</h3><p>O fluxo mostra horário, localização e cardápio mesmo com a loja fechada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="antes-depois">
+  <div class="container">
+    <div class="section-head reveal"><span class="pill">Antes e depois</span><h2>O mesmo restaurante, outro ritmo</h2></div>
+    <div class="vs">
+      <div class="col bad reveal"><h3>Sem o ZapDelivery</h3><ul>
+        <li>Pedido anotado no papel, item esquecido na cozinha.</li>
+        <li>Comprovante de Pix conferido na mão, no meio do pico.</li>
+        <li>Cliente da mesa acenando para chamar o garçom.</li>
+        <li>Conta dividida na calculadora, no fim da noite.</li>
+        <li>Comissão de aplicativo levando parte de cada venda.</li>
+      </ul></div>
+      <div class="col good reveal"><h3>Com o ZapDelivery</h3><ul>
+        <li>Pedido conferido pelo sistema e impresso na cozinha.</li>
+        <li>Pagamento aprovado sozinho, direto na sua conta.</li>
+        <li>Cliente chama o garçom e pede a conta pelo QR da mesa.</li>
+        <li>Divisão, taxa de serviço e várias formas de pagamento no fechamento.</li>
+        <li>Mensalidade fixa, sem limite de pedidos e sem comissão.</li>
+      </ul></div>
     </div>
   </div>
 </section>
@@ -224,25 +547,70 @@ footer{border-top:1px solid var(--line);padding:2rem 0 6rem;color:var(--muted);f
 
 <section class="light" id="planos">
   <div class="container">
-    <div class="section-head reveal"><span class="pill">Planos</span><h2>Mensalidade fixa. Zero comissão por pedido.</h2><p>Todas as funções nos dois planos. A diferença é o tamanho da equipe e a quantidade de números de WhatsApp.</p></div>
-    <div class="plans">
-      <div class="plan reveal">
-        <h3>ESSENCIAL</h3>
-        <div class="price">R$ 350<small> / mês</small></div>
-        <ul><li>5 usuários</li><li>1 conexão de WhatsApp</li><li>Pedido, pagamento, cozinha e entrega</li><li>Venda balcão e retirada</li><li>Relatórios e comanda térmica</li></ul>
-        <div class="setup">Implantação: <b>R$ 350</b> (pagamento único)</div>
-        <a class="btn btn-secondary js-cta" style="border-color:rgba(242,107,29,.4);color:var(--orange);width:100%" data-loc="plano-essencial" href="https://wa.me/553140428010?text=Quero%20o%20plano%20Essencial%20do%20ZapDelivery" target="_blank">Escolher Essencial</a>
+    <div class="section-head reveal"><span class="pill">Planos</span><h2>Tudo incluído a partir de <span style="color:var(--orange)">R$ 10 por dia</span></h2><p>Todas as funções nos dois planos. A diferença é o tamanho da equipe e a quantidade de números de WhatsApp. Sem fidelidade: você fica porque vende mais.</p></div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <span class="tag tag-soft">ESSENCIAL</span>
+        <div class="perday"><small>apenas</small><b>R$ 10</b><span>por dia</span></div>
+        <div class="permonth">R$ 300 / mês</div>
+        <div class="price-flags"><span>👥 5 usuários · 1 WhatsApp</span><span>♾️ Sem limite de pedidos</span><span>🚫 Sem comissão por pedido</span><span>🔓 Sem fidelidade</span></div>
+        <a class="btn btn-secondary js-cta" style="width:100%;border-color:rgba(242,107,29,.45);color:var(--orange)" data-loc="plano-essencial" href="https://wa.me/553140428010?text=Quero%20o%20plano%20Essencial%20do%20ZapDelivery" target="_blank">Quero o Essencial</a>
+        <p class="setup-box">Implantação: <b>R$ 300</b>, o valor de uma mensalidade.<br>A 1ª mensalidade só vence <b>30 dias depois</b>.</p>
       </div>
-      <div class="plan hot reveal">
-        <span class="tag">MAIS COMPLETO</span>
-        <h3>PROFISSIONAL</h3>
-        <div class="price">R$ 500<small> / mês</small></div>
-        <ul><li>10 usuários</li><li>2 conexões de WhatsApp</li><li>Pedido, pagamento, cozinha e entrega</li><li>Venda balcão e retirada</li><li>Relatórios e comanda térmica</li></ul>
-        <div class="setup">Implantação: <b>R$ 500</b> (pagamento único)</div>
-        <a class="btn btn-primary js-cta" style="width:100%" data-loc="plano-profissional" href="https://wa.me/553140428010?text=Quero%20o%20plano%20Profissional%20do%20ZapDelivery" target="_blank">Escolher Profissional</a>
+      <div class="price-card hot reveal">
+        <span class="tag">PROFISSIONAL · MAIS COMPLETO</span>
+        <div class="perday"><small>apenas</small><b>R$ 15</b><span>por dia</span></div>
+        <div class="permonth">R$ 450 / mês</div>
+        <div class="price-flags"><span>👥 10 usuários · 2 WhatsApp</span><span>♾️ Sem limite de pedidos</span><span>🚫 Sem comissão por pedido</span><span>🔓 Sem fidelidade</span></div>
+        <a class="btn btn-primary js-cta" style="width:100%" data-loc="plano-profissional" href="https://wa.me/553140428010?text=Quero%20o%20plano%20Profissional%20do%20ZapDelivery" target="_blank">Quero o Profissional</a>
+        <p class="setup-box">Implantação: <b>R$ 450</b>, o valor de uma mensalidade.<br>A 1ª mensalidade só vence <b>30 dias depois</b>.</p>
+      </div>
+      <p class="impl-note reveal">Na implantação assistida a gente cadastra o cardápio, monta o fluxo do WhatsApp, configura mesas e cozinha, conecta o Mercado Pago e treina a equipe.</p>
+      <div class="calc reveal" id="calc">
+        <span class="pill" style="background:transparent">Faça a conta</span>
+        <h3>Quanto o seu delivery fatura por mês?</h3>
+        <div class="calc-val" id="calcFat">R$ 15.000</div>
+        <input type="range" id="calcRange" min="2000" max="60000" step="1000" value="15000" aria-label="Faturamento mensal do delivery">
+        <div class="calc-scale"><span>R$ 2 mil</span><span>R$ 60 mil+</span></div>
+        <div class="calc-rows">
+          <div><span>Comissão de aplicativo (exemplo de 12%)</span><b class="bad" id="calcCom">R$ 1.800</b></div>
+          <div><span>ZapDelivery Essencial, sem comissão</span><b>R$ 300</b></div>
+          <div class="save"><span>Sobra no seu caixa por mês</span><b id="calcSave">R$ 1.500</b></div>
+        </div>
+        <p class="calc-note">Simulação ilustrativa. A taxa de comissão varia conforme o aplicativo e o plano contratado.</p>
       </div>
     </div>
-    <p class="note reveal">Implantação assistida: cadastramos o cardápio, montamos o fluxo do WhatsApp, conectamos o Mercado Pago e treinamos a equipe.<br>As taxas do Mercado Pago (Pix e cartão) seguem o contrato do estabelecimento com o Mercado Pago.</p>
+    <div class="included reveal">
+      <div class="included-head"><span class="pill">Incluído na mensalidade</span><h3>Seu restaurante funcionando no automático a partir de <span class="hl">R$ 10 por dia</span></h3></div>
+      <div class="inc-grid">
+        <div><i>✓</i><b>📲 Pedido pelo WhatsApp</b><span>Cardápio, conferência do pedido e entrega ou retirada.</span></div>
+        <div><i>✓</i><b>💳 Pagamento automático</b><span>Pix e cartão pelo Mercado Pago, aprovado sozinho.</span></div>
+        <div><i>✓</i><b>📋 Gestor de pedidos</b><span>Kanban da cozinha e avisos de status ao cliente.</span></div>
+        <div><i>✓</i><b>🔳 Mesas e QR Code</b><span>Cardápio na mesa, chamar garçom e pedir a conta.</span></div>
+        <div><i>✓</i><b>🍽️ Comandas e garçons</b><span>Várias comandas por mesa, código, área e comissão.</span></div>
+        <div><i>✓</i><b>👨‍🍳 Cozinha com impressão</b><span>Tela da cozinha e comanda térmica automática.</span></div>
+        <div><i>✓</i><b>🏪 Balcão com PDV</b><span>Venda rápida com Pix, cartão ou dinheiro.</span></div>
+        <div><i>✓</i><b>🔁 Pedidos pendentes</b><span>Link expirou? O pedido fica separado para a equipe recuperar a venda.</span></div>
+        <div><i>✓</i><b>📊 Relatórios</b><span>Vendas, caixa, mais vendidos, garçons e horários de pico.</span></div>
+      </div>
+    </div>
+    <p class="note reveal">As taxas do Mercado Pago (Pix e cartão) seguem o contrato do estabelecimento com o Mercado Pago.</p>
+  </div>
+</section>
+
+<section class="light" id="faq" style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal"><span class="pill">Perguntas frequentes</span><h2>Dúvidas comuns</h2></div>
+    <div class="faq reveal">
+      <details><summary>Existe limite de pedidos por mês?</summary><p>Não. Delivery, mesas e balcão não têm teto de pedidos. A mensalidade é a mesma em um mês calmo ou cheio.</p></details>
+      <details><summary>Vocês cobram comissão sobre as vendas?</summary><p>Não. O ZapDelivery não cobra porcentagem por pedido. As únicas taxas sobre pagamento online são as do Mercado Pago, conforme o contrato do seu estabelecimento com ele.</p></details>
+      <details><summary>Tem fidelidade ou multa para cancelar?</summary><p>Não. Os planos não têm fidelidade: você pode cancelar quando quiser.</p></details>
+      <details><summary>Quanto custa a implantação e quando pago a primeira mensalidade?</summary><p>A implantação custa o valor de uma mensalidade do plano escolhido: R$ 300 no Essencial ou R$ 450 no Profissional. A primeira mensalidade só vence 30 dias depois.</p></details>
+      <details><summary>O cliente precisa baixar algum aplicativo?</summary><p>Não. No delivery ele pede pelo WhatsApp que já usa. Na mesa, o QR Code abre o cardápio direto no navegador do celular.</p></details>
+      <details><summary>Dá para usar só o salão, sem delivery?</summary><p>Fale com o nosso consultor: a implantação é montada de acordo com a operação do seu restaurante, seja delivery, salão, balcão ou tudo junto.</p></details>
+      <details><summary>Preciso de impressora específica?</summary><p>A comanda sai em impressora térmica de 58 mm, por USB ou Bluetooth, pelo computador ou pelo celular.</p></details>
+      <details><summary>Quem cadastra o cardápio e configura as mesas?</summary><p>A gente. A implantação é assistida: cadastramos o cardápio, montamos o fluxo do WhatsApp, configuramos mesas, garçons e cozinha e treinamos a equipe.</p></details>
+    </div>
   </div>
 </section>
 
@@ -303,6 +671,96 @@ if(planosEl && 'IntersectionObserver' in window){
     entries.forEach(function(e){ if(e.isIntersecting && !seen){ seen=true; if(typeof gtag === 'function'){ gtag('event', 'view_planos', { page: 'zapdelivery' }); } } });
   }, {threshold:0.3}).observe(planosEl);
 }
+
+var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+var timers = [];
+function clearT(){ timers.forEach(clearTimeout); timers = []; }
+
+// abas do pedido digital
+var tabs = document.querySelectorAll('.tabs button');
+tabs.forEach(function(b){
+  b.addEventListener('click', function(){
+    var t = b.dataset.tab;
+    tabs.forEach(function(x){ x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b); });
+    document.querySelectorAll('.tabpane').forEach(function(p){ p.classList.toggle('on', p.dataset.pane === t); });
+    document.getElementById('phoneWhats').style.display = t === 'whats' ? '' : 'none';
+    document.getElementById('phoneMesa').style.display = t === 'mesa' ? '' : 'none';
+    if(t === 'mesa') runMesa(); else runChat();
+  });
+});
+
+// conversa animada no WhatsApp
+function runChat(){
+  clearT();
+  var msgs = document.querySelectorAll('#chat .msg'), typing = document.getElementById('typing');
+  msgs.forEach(function(m){ m.classList.remove('show'); m.style.display = 'none'; });
+  if(reduce){ msgs.forEach(function(m){ m.style.display = ''; m.classList.add('show'); }); return; }
+  var t = 400;
+  msgs.forEach(function(m){
+    var bot = !m.classList.contains('me');
+    if(bot){ timers.push(setTimeout(function(){ typing.classList.add('on'); }, t)); t += 900; }
+    timers.push(setTimeout(function(){ typing.classList.remove('on'); m.style.display = ''; requestAnimationFrame(function(){ m.classList.add('show'); }); }, t));
+    t += bot ? 1300 : 900;
+  });
+  timers.push(setTimeout(runChat, t + 3500));
+}
+
+// cardápio da mesa animado
+var precos = [29, 22, 7, 12];
+function runMesa(){
+  clearT();
+  var items = document.querySelectorAll('.mn-item'), q = document.getElementById('cartQtd'), tot = document.getElementById('cartTot'), toast = document.getElementById('toast');
+  var g = document.getElementById('btnGarcom'), c = document.getElementById('btnConta');
+  items.forEach(function(i){ i.classList.remove('pick'); });
+  q.textContent = 'Carrinho vazio'; tot.textContent = 'R$ 0,00';
+  var n = 0, v = 0, t = 700;
+  function at(fn, d){ timers.push(setTimeout(fn, t)); t += d; }
+  [0, 0, 1, 2].forEach(function(i){
+    at(function(){
+      items.forEach(function(x){ x.classList.remove('pick'); }); items[i].classList.add('pick');
+      n++; v += precos[i];
+      q.textContent = n + (n > 1 ? ' itens' : ' item') + ' · ver carrinho';
+      tot.textContent = 'R$ ' + v.toFixed(2).replace('.', ',');
+    }, 900);
+  });
+  at(function(){ items.forEach(function(x){ x.classList.remove('pick'); }); toast.textContent = '✅ Pedido enviado para a cozinha'; toast.classList.add('on'); q.textContent = 'Pedido enviado'; }, 1800);
+  at(function(){ toast.classList.remove('on'); g.classList.add('flash'); }, 600);
+  at(function(){ toast.textContent = '🙋 Garçom chamado'; toast.classList.add('on'); }, 1600);
+  at(function(){ toast.classList.remove('on'); g.classList.remove('flash'); c.classList.add('flash'); }, 600);
+  at(function(){ toast.textContent = '🧾 Conta solicitada'; toast.classList.add('on'); }, 1800);
+  at(function(){ toast.classList.remove('on'); c.classList.remove('flash'); }, 2500);
+  if(!reduce) timers.push(setTimeout(runMesa, t));
+}
+
+// começa a conversa quando o celular aparece na tela
+var started = false, phoneWrap = document.querySelector('.phone-wrap');
+if('IntersectionObserver' in window){
+  new IntersectionObserver(function(e){ if(e[0].isIntersecting && !started){ started = true; runChat(); } }, {threshold:0.3}).observe(phoneWrap);
+} else { runChat(); }
+
+// simulador de economia
+(function(){
+  var r = document.getElementById('calcRange'); if(!r) return;
+  function brl(v){ return 'R$ ' + Math.round(v).toLocaleString('pt-BR'); }
+  function upd(){
+    var f = +r.value, com = f * 0.12;
+    document.getElementById('calcFat').textContent = brl(f) + (f >= +r.max ? '+' : '');
+    document.getElementById('calcCom').textContent = brl(com);
+    var s = com - 300;
+    document.getElementById('calcSave').textContent = s > 0 ? brl(s) : 'R$ 0';
+  }
+  r.addEventListener('input', upd); upd();
+})();
+
+// mapa de mesas mudando
+(function(){
+  var tbs = document.querySelectorAll('#tables .tb'); if(reduce || !tbs.length) return;
+  var estados = [['busy','R$ 71'],['call','garçom!'],['bill','conta'],['busy','2 comandas'],['','livre']];
+  setInterval(function(){
+    var el = tbs[Math.floor(Math.random()*tbs.length)], e = estados[Math.floor(Math.random()*estados.length)];
+    el.className = 'tb' + (e[0] ? ' ' + e[0] : ''); el.querySelector('small').textContent = e[1];
+  }, 1600);
+})();
 </script>
 </body>
 </html>
