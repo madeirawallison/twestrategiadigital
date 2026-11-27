@@ -35,7 +35,15 @@ gerada com o Edge headless.
 | `/perguntas-frequentes/` | Perguntas frequentes |
 | `/contato/` | Contato |
 
-## Publicação (proposta, ainda não feita)
+## Publicação
+
+Publicado em 27/11/2026 no Cloudflare Pages: projeto `pedidoja`, ligado a este
+repositório, branch de produção `pedidoja` (trocar para `main` depois do merge),
+sem build, pasta de saída `pedidoja`. Domínios pedidoja.com e www.pedidoja.com
+(CNAME para pedidoja.pages.dev). O registro anterior do domínio raiz era
+`A 187.84.225.50`, que respondia 404.
+
+### Por que Cloudflare Pages
 
 Este repositório já é publicado pelo GitHub Pages em www.twestrategiadigital.com.br
 (arquivo `CNAME` na raiz). Um site do GitHub Pages só aceita um domínio, então
