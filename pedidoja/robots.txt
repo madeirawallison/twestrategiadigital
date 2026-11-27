@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pedidoja.com/sitemap.xml

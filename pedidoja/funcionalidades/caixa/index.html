@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Controle de caixa: abertura, sangria e fechamento às cegas | Pedido Já</title>
+<meta name="description" content="Abra o caixa com o troco inicial, registre sangrias durante o turno e feche às cegas: o operador informa o valor contado e o sistema mostra a diferença para o gestor.">
+<link rel="canonical" href="https://pedidoja.com/funcionalidades/caixa/">
+<meta name="theme-color" content="#e63b2e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Pedido Já">
+<meta property="og:title" content="Controle de caixa: abertura, sangria e fechamento às cegas | Pedido Já">
+<meta property="og:description" content="Abra o caixa com o troco inicial, registre sangrias durante o turno e feche às cegas: o operador informa o valor contado e o sistema mostra a diferença para o gestor.">
+<meta property="og:url" content="https://pedidoja.com/funcionalidades/caixa/">
+<meta property="og:image" content="https://pedidoja.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icone-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/estilo.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="../../" aria-label="Pedido Já, página inicial">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.4 3 15.1c0 3 1.2 5.8 3.2 7.9L5 29l6.3-2.6c1.5.5 3 .7 4.7.7 7.2 0 13-5.4 13-12S23.2 3 16 3z" fill="#e63b2e"/><path d="M17.6 7.5l-6.4 9.3h4.3l-1.6 7.7 6.4-9.3H16z" fill="#ffc83d"/></svg>
+      <span>Pedido <b>Já</b></span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <details>
+        <summary>Funcionalidades</summary>
+        <div class="sub">
+          <a href="../../funcionalidades/pedido-whatsapp/"><span>📲</span><div><strong>Pedido pelo WhatsApp</strong><small>Cardápio, conferência e pagamento por link</small></div></a>
+          <a href="../../funcionalidades/cardapio-digital/"><span>📖</span><div><strong>Cardápio digital</strong><small>Fotos, acréscimos com preço e destaques</small></div></a>
+          <a href="../../funcionalidades/mesas-qr-code/"><span>🔳</span><div><strong>Mesas e QR Code</strong><small>Pedido, garçom e conta pelo celular</small></div></a>
+          <a href="../../funcionalidades/garcom-e-totem/"><span>🧑‍🍳</span><div><strong>Garçom e Modo Totem</strong><small>Código por garçom e autoatendimento</small></div></a>
+          <a href="../../funcionalidades/balcao-pdv/"><span>🏪</span><div><strong>Balcão / PDV</strong><small>Venda rápida no balcão</small></div></a>
+          <a href="../../funcionalidades/cozinha/"><span>👨‍🍳</span><div><strong>Cozinha</strong><small>Tela de pedidos e impressão automática</small></div></a>
+          <a href="../../funcionalidades/caixa/"><span>💰</span><div><strong>Caixa</strong><small>Abertura, sangria e fechamento às cegas</small></div></a>
+          <a href="../../funcionalidades/filiais/"><span>🏢</span><div><strong>Rede de unidades</strong><small>Cardápio central para as filiais</small></div></a>
+          <a href="../../funcionalidades/contabilidade/"><span>🧮</span><div><strong>Contabilidade</strong><small>Pacote mensal para o contador</small></div></a>
+        </div>
+      </details>
+      <a href="../../planos/">Planos</a>
+      <a href="../../perguntas-frequentes/">Perguntas</a>
+      <a href="../../contato/">Contato</a>
+    </nav>
+    <a class="btn btn-zap btn-pequeno" href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener">Falar com consultor</a>
+    <button class="abre-menu" type="button" aria-expanded="false" aria-controls="gaveta" aria-label="Abrir menu"><span></span></button>
+  </div>
+  <div class="gaveta" id="gaveta">
+    <div class="wrap">
+      <p>Funcionalidades</p>
+      <a href="../../funcionalidades/pedido-whatsapp/">📲 Pedido pelo WhatsApp</a>
+      <a href="../../funcionalidades/cardapio-digital/">📖 Cardápio digital</a>
+      <a href="../../funcionalidades/mesas-qr-code/">🔳 Mesas e QR Code</a>
+      <a href="../../funcionalidades/garcom-e-totem/">🧑‍🍳 Garçom e Modo Totem</a>
+      <a href="../../funcionalidades/balcao-pdv/">🏪 Balcão / PDV</a>
+      <a href="../../funcionalidades/cozinha/">👨‍🍳 Cozinha</a>
+      <a href="../../funcionalidades/caixa/">💰 Caixa</a>
+      <a href="../../funcionalidades/filiais/">🏢 Rede de unidades</a>
+      <a href="../../funcionalidades/contabilidade/">🧮 Contabilidade</a>
+      <p>Pedido Já</p>
+      <a href="../../">Início</a>
+      <a href="../../planos/">Planos e preços</a>
+      <a href="../../perguntas-frequentes/">Perguntas frequentes</a>
+      <a href="../../contato/">Contato</a>
+      <a class="btn btn-zap" href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener">Falar com consultor no WhatsApp</a>
+    </div>
+  </div>
+</header>
+<main id="conteudo">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <nav class="migalhas" aria-label="Você está em"><a href="../../">Início</a> › <a href="../../#funcionalidades">Funcionalidades</a> › Caixa</nav>
+      <span class="selo">💰 Caixa</span>
+      <h1>O caixa fecha <span class="destaque">sem surpresa</span>.</h1>
+      <p class="lead">Abertura com troco inicial, sangrias registradas durante o turno e fechamento às cegas. Você sabe quanto entrou, quanto saiu e se faltou alguma coisa.</p>
+      <div class="acoes">
+        <a class="btn btn-zap" href="https://wa.me/553140428010?text=Quero%20conhecer%20o%20controle%20de%20caixa%20do%20Pedido%20J%C3%A1" target="_blank" rel="noopener">Falar com um consultor</a>
+        <a class="btn btn-linha" href="../../funcionalidades/balcao-pdv/">Ver o PDV do balcão</a>
+      </div>
+    </div>
+    <div class="palco">
+      <div class="painel" role="img" aria-label="Ilustração do resumo de um turno de caixa com abertura, sangria e fechamento às cegas">
+        <div class="painel-topo">Caixa · turno da noite <i>fechando</i></div>
+        <div class="painel-corpo">
+          <div class="linhas">
+            <div><span>Abertura (troco inicial)</span><b>R$ 200,00</b></div>
+            <div><span>Vendas em dinheiro</span><b>R$ 640,00</b></div>
+            <div class="neg"><span>Sangria · 21:30</span><b>– R$ 500,00</b></div>
+          </div>
+          <p style="margin:14px 0 0;font-weight:700">Fechamento às cegas</p>
+          <div class="campo">Quanto tem na gaveta? <b>R$ ______</b><br><small>O operador não vê o valor esperado.</small></div>
+          <p class="ilustra">Valores ilustrativos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-creme">
+  <div class="wrap">
+    <div class="cab"><span class="rotulo">O turno do caixa</span><h2>Três momentos, tudo registrado</h2></div>
+    <ol class="passos p3">
+      <li><strong>Abertura</strong><span>O operador abre o caixa informando o troco inicial. A partir daí, as vendas do turno ficam ligadas a ele.</span></li>
+      <li><strong>Sangria</strong><span>Tirou dinheiro da gaveta durante o turno? A sangria fica registrada e entra na conta do fechamento.</span></li>
+      <li><strong>Fechamento às cegas</strong><span>O operador conta a gaveta e informa o valor sem ver quanto o sistema espera. A diferença aparece para o gestor.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="duo">
+      <div>
+        <span class="rotulo">Por que às cegas</span>
+        <h2>Conferência de verdade, sem constranger ninguém</h2>
+        <p class="lead">Quando o operador vê o valor esperado antes de contar, a conferência vira só uma formalidade. No fechamento às cegas ele informa o que contou, e a comparação é feita pelo sistema.</p>
+        <ul class="lista">
+          <li>Sobra ou falta fica visível no mesmo dia.</li>
+          <li>Vendas separadas por forma de pagamento: Pix, cartão e dinheiro.</li>
+          <li>Fechamento de caixa nos relatórios, com exportação para Excel.</li>
+        </ul>
+      </div>
+      <div class="grade g2">
+        <div class="cartao"><div class="ico">🔐</div><h3>Histórico de turnos</h3><p>Cada abertura, sangria e fechamento fica registrado no sistema.</p></div>
+        <div class="cartao"><div class="ico">💸</div><h3>Sangria registrada</h3><p>Nada de dinheiro saindo da gaveta sem deixar rastro.</p></div>
+        <div class="cartao"><div class="ico">🧮</div><h3>Diferença na hora</h3><p>O gestor vê o esperado, o contado e a diferença.</p></div>
+        <div class="cartao"><div class="ico">📤</div><h3>Pronto para o contador</h3><p>Os números do mês entram no <a href="../../funcionalidades/contabilidade/">pacote do contador</a>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-creme">
+  <div class="wrap">
+    <div class="cab"><span class="rotulo">Tudo conectado</span><h2>Funciona junto com o resto do sistema</h2><p class="lead">Mesmo cardápio, mesma cozinha, mesmo caixa e os mesmos relatórios para delivery, salão e balcão.</p></div>
+    <div class="grade g4">
+<a class="cartao" href="../../funcionalidades/pedido-whatsapp/"><div class="ico">📲</div><h3>Pedido pelo WhatsApp</h3><p>Cardápio, conferência e pagamento por link.</p><span class="mais">Ver como funciona →</span></a>
+<a class="cartao" href="../../funcionalidades/cardapio-digital/"><div class="ico">📖</div><h3>Cardápio digital</h3><p>Fotos, acréscimos com preço e destaques.</p><span class="mais">Ver como funciona →</span></a>
+<a class="cartao" href="../../funcionalidades/mesas-qr-code/"><div class="ico">🔳</div><h3>Mesas e QR Code</h3><p>Pedido, garçom e conta pelo celular.</p><span class="mais">Ver como funciona →</span></a>
+<a class="cartao" href="../../funcionalidades/garcom-e-totem/"><div class="ico">🧑‍🍳</div><h3>Garçom e Modo Totem</h3><p>Código por garçom e autoatendimento.</p><span class="mais">Ver como funciona →</span></a>
+<a class="cartao" href="../../funcionalidades/balcao-pdv/"><div class="ico">🏪</div><h3>Balcão / PDV</h3><p>Venda rápida no balcão.</p><span class="mais">Ver como funciona →</span></a>
+<a class="cartao" href="../../funcionalidades/cozinha/"><div class="ico">👨‍🍳</div><h3>Cozinha</h3><p>Tela de pedidos e impressão automática.</p><span class="mais">Ver como funciona →</span></a>
+<a class="cartao" href="../../funcionalidades/filiais/"><div class="ico">🏢</div><h3>Rede de unidades</h3><p>Cardápio central para as filiais.</p><span class="mais">Ver como funciona →</span></a>
+<a class="cartao" href="../../funcionalidades/contabilidade/"><div class="ico">🧮</div><h3>Contabilidade</h3><p>Pacote mensal para o contador.</p><span class="mais">Ver como funciona →</span></a>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="chamada">
+      <h2>Quer ver isso com o seu cardápio?</h2>
+      <p>Fale com o nosso comercial: a gente mostra o sistema funcionando e monta a implantação de acordo com a sua operação.</p>
+      <div class="acoes">
+        <a class="btn btn-zap" href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener">📲 Falar com o comercial</a>
+        <a class="btn btn-linha" href="../../planos/">Ver planos e preços</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="rodape">
+  <div class="wrap">
+    <div class="colunas">
+      <div>
+        <a class="marca" href="../../">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.4 3 15.1c0 3 1.2 5.8 3.2 7.9L5 29l6.3-2.6c1.5.5 3 .7 4.7.7 7.2 0 13-5.4 13-12S23.2 3 16 3z" fill="#e63b2e"/><path d="M17.6 7.5l-6.4 9.3h4.3l-1.6 7.7 6.4-9.3H16z" fill="#ffc83d"/></svg>
+          <span>Pedido <b>Já</b></span>
+        </a>
+        <p>Delivery pelo WhatsApp, cardápio digital, mesas, balcão, cozinha e caixa em um só sistema. Mensalidade fixa, sem comissão por pedido.</p>
+      </div>
+      <div>
+        <h4>Funcionalidades</h4>
+        <ul>
+          <li><a href="../../funcionalidades/pedido-whatsapp/">Pedido pelo WhatsApp</a></li>
+          <li><a href="../../funcionalidades/cardapio-digital/">Cardápio digital</a></li>
+          <li><a href="../../funcionalidades/mesas-qr-code/">Mesas e QR Code</a></li>
+          <li><a href="../../funcionalidades/garcom-e-totem/">Garçom e Modo Totem</a></li>
+          <li><a href="../../funcionalidades/balcao-pdv/">Balcão / PDV</a></li>
+          <li><a href="../../funcionalidades/cozinha/">Cozinha</a></li>
+          <li><a href="../../funcionalidades/caixa/">Caixa</a></li>
+          <li><a href="../../funcionalidades/filiais/">Rede de unidades</a></li>
+          <li><a href="../../funcionalidades/contabilidade/">Contabilidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pedido Já</h4>
+        <ul>
+          <li><a href="../../planos/">Planos e preços</a></li>
+          <li><a href="../../perguntas-frequentes/">Perguntas frequentes</a></li>
+          <li><a href="../../contato/">Contato</a></li>
+          <li><a href="https://wa.me/553140428030?text=Oi" target="_blank" rel="noopener">Fazer um pedido de teste</a></li>
+          <li><a href="../../assets/apresentacao.pdf">Apresentação em PDF</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <ul>
+          <li><a href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener">WhatsApp comercial<br>(31) 4042-8010</a></li>
+          <li><a href="mailto:contato@twestrategiadigital.com.br">contato@twestrategiadigital.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© 2026 <b>Pedido Já</b>, um produto <a href="https://www.twestrategiadigital.com.br/" target="_blank" rel="noopener">TW Estratégia Digital</a></span>
+      <a href="https://www.twestrategiadigital.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de privacidade</a>
+    </div>
+  </div>
+</footer>
+<a class="flutua" href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener" aria-label="Falar com o comercial no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a15 15 0 0 1-6.3-5.5c-.5-.8-1-1.9-1-2.9 0-1.1.6-1.6.8-1.9.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.1z"/></svg>
+</a>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

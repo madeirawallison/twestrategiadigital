@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{titulo}}</title>
+<meta name="description" content="{{descricao}}">
+<link rel="canonical" href="{{url}}">
+<meta name="theme-color" content="#e63b2e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Pedido Já">
+<meta property="og:title" content="{{titulo}}">
+<meta property="og:description" content="{{descricao}}">
+<meta property="og:url" content="{{url}}">
+<meta property="og:image" content="https://pedidoja.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{r}}assets/icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{r}}assets/icone-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{r}}assets/estilo.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="{{r}}" aria-label="Pedido Já, página inicial">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.4 3 15.1c0 3 1.2 5.8 3.2 7.9L5 29l6.3-2.6c1.5.5 3 .7 4.7.7 7.2 0 13-5.4 13-12S23.2 3 16 3z" fill="#e63b2e"/><path d="M17.6 7.5l-6.4 9.3h4.3l-1.6 7.7 6.4-9.3H16z" fill="#ffc83d"/></svg>
+      <span>Pedido <b>Já</b></span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <details>
+        <summary>Funcionalidades</summary>
+        <div class="sub">
+{{menu-funcionalidades}}
+        </div>
+      </details>
+      <a href="{{r}}planos/">Planos</a>
+      <a href="{{r}}perguntas-frequentes/">Perguntas</a>
+      <a href="{{r}}contato/">Contato</a>
+    </nav>
+    <a class="btn btn-zap btn-pequeno" href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener">Falar com consultor</a>
+    <button class="abre-menu" type="button" aria-expanded="false" aria-controls="gaveta" aria-label="Abrir menu"><span></span></button>
+  </div>
+  <div class="gaveta" id="gaveta">
+    <div class="wrap">
+      <p>Funcionalidades</p>
+{{gaveta-funcionalidades}}
+      <p>Pedido Já</p>
+      <a href="{{r}}">Início</a>
+      <a href="{{r}}planos/">Planos e preços</a>
+      <a href="{{r}}perguntas-frequentes/">Perguntas frequentes</a>
+      <a href="{{r}}contato/">Contato</a>
+      <a class="btn btn-zap" href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener">Falar com consultor no WhatsApp</a>
+    </div>
+  </div>
+</header>
+<main id="conteudo">
+{{conteudo}}
+</main>
+<footer class="rodape">
+  <div class="wrap">
+    <div class="colunas">
+      <div>
+        <a class="marca" href="{{r}}">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.4 3 15.1c0 3 1.2 5.8 3.2 7.9L5 29l6.3-2.6c1.5.5 3 .7 4.7.7 7.2 0 13-5.4 13-12S23.2 3 16 3z" fill="#e63b2e"/><path d="M17.6 7.5l-6.4 9.3h4.3l-1.6 7.7 6.4-9.3H16z" fill="#ffc83d"/></svg>
+          <span>Pedido <b>Já</b></span>
+        </a>
+        <p>Delivery pelo WhatsApp, cardápio digital, mesas, balcão, cozinha e caixa em um só sistema. Mensalidade fixa, sem comissão por pedido.</p>
+      </div>
+      <div>
+        <h4>Funcionalidades</h4>
+        <ul>
+{{rodape-funcionalidades}}
+        </ul>
+      </div>
+      <div>
+        <h4>Pedido Já</h4>
+        <ul>
+          <li><a href="{{r}}planos/">Planos e preços</a></li>
+          <li><a href="{{r}}perguntas-frequentes/">Perguntas frequentes</a></li>
+          <li><a href="{{r}}contato/">Contato</a></li>
+          <li><a href="https://wa.me/553140428030?text=Oi" target="_blank" rel="noopener">Fazer um pedido de teste</a></li>
+          <li><a href="{{r}}assets/apresentacao.pdf">Apresentação em PDF</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <ul>
+          <li><a href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener">WhatsApp comercial<br>(31) 4042-8010</a></li>
+          <li><a href="mailto:contato@twestrategiadigital.com.br">contato@twestrategiadigital.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© 2026 <b>Pedido Já</b>, um produto <a href="https://www.twestrategiadigital.com.br/" target="_blank" rel="noopener">TW Estratégia Digital</a></span>
+      <a href="https://www.twestrategiadigital.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de privacidade</a>
+    </div>
+  </div>
+</footer>
+<a class="flutua" href="https://wa.me/553140428010?text=Oi!%20Quero%20conhecer%20o%20Pedido%20J%C3%A1" target="_blank" rel="noopener" aria-label="Falar com o comercial no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a15 15 0 0 1-6.3-5.5c-.5-.8-1-1.9-1-2.9 0-1.1.6-1.6.8-1.9.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.1z"/></svg>
+</a>
+<script src="{{r}}assets/site.js" defer></script>
+</body>
+</html>
