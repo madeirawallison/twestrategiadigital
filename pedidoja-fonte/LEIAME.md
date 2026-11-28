@@ -72,3 +72,7 @@ pedidoja.com (registros A do GitHub Pages na Cloudflare, sem proxy laranja).
 e story 1080x1920. O celular e o notebook mostram o cardápio real de
 hamburgueriamadeira.pedidoja.com, carregado ao vivo. Para gerar de novo os PNGs:
 `pwsh pedidoja-fonte/instagram/gerar-imagens.ps1`
+
+`instagram/aparelhos.html` gera `pedidoja/assets/aparelhos.webp` (computador, tablet e celular com
+o cardápio real, fundo transparente), usada na página inicial e em Cardápio digital.
+Só ela: `pwsh pedidoja-fonte/instagram/gerar-imagens.ps1 -Somente aparelhos`

@@ -2,7 +2,7 @@
 # Uso: pwsh pedidoja-fonte/servidor.ps1 [porta]
 param([int]$Porta = 8099)
 $raiz = Join-Path (Split-Path -Parent $PSScriptRoot) 'pedidoja'
-$tipos = @{ '.html'='text/html; charset=utf-8'; '.css'='text/css'; '.js'='text/javascript'; '.svg'='image/svg+xml'; '.png'='image/png'; '.jpg'='image/jpeg'; '.mp4'='video/mp4'; '.pdf'='application/pdf'; '.xml'='application/xml'; '.txt'='text/plain' }
+$tipos = @{ '.html'='text/html; charset=utf-8'; '.css'='text/css'; '.js'='text/javascript'; '.svg'='image/svg+xml'; '.png'='image/png'; '.jpg'='image/jpeg'; '.webp'='image/webp'; '.mp4'='video/mp4'; '.pdf'='application/pdf'; '.xml'='application/xml'; '.txt'='text/plain' }
 $http = [System.Net.HttpListener]::new()
 $http.Prefixes.Add("http://localhost:$Porta/")
 $http.Start()
