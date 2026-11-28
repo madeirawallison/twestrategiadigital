@@ -65,3 +65,10 @@ pedidoja.com, então o Google trata pedidoja.com como o endereço oficial.
 
 Alternativa: repositório próprio `pedidoja` no GitHub com GitHub Pages e `CNAME`
 pedidoja.com (registros A do GitHub Pages na Cloudflare, sem proxy laranja).
+
+## Artes do Instagram
+
+`instagram/` tem duas artes (Pedido na mesa e Cardápio digital), cada uma em feed 1080x1350
+e story 1080x1920. O celular e o notebook mostram o cardápio real de
+hamburgueriamadeira.pedidoja.com, carregado ao vivo. Para gerar de novo os PNGs:
+`pwsh pedidoja-fonte/instagram/gerar-imagens.ps1`

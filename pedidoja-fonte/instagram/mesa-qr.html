@@ -1,0 +1,52 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+.faixa{position:absolute;background:var(--tomate);transform:rotate(-38deg)}
+.f1{width:520px;height:110px;left:-190px;top:40px}.f2{width:520px;height:40px;left:-150px;top:190px;background:var(--amarelo)}
+.f3{width:760px;height:120px;right:-300px;bottom:70px;transform:rotate(-24deg)}.f4{width:640px;height:34px;right:-250px;bottom:230px;transform:rotate(-24deg);background:var(--amarelo)}
+.topo{position:absolute;left:0;right:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+h1{font:800 168px/.9 'Bricolage Grotesque',sans-serif;letter-spacing:-6px;color:var(--tomate);margin-top:44px}
+.sub{font:600 34px/1.25 Inter;color:var(--cinza);margin-top:22px}
+.lista{position:absolute;left:64px;width:440px;list-style:none}
+.lista li{display:flex;align-items:center;gap:22px;padding:24px 0;border-bottom:4px solid var(--tomate);font:700 31px/1.2 Inter}
+.lista li:last-child{border:0}
+.ic{flex:0 0 92px;height:92px;border-radius:50%;background:var(--tomate);display:grid;place-items:center}
+.ic svg{width:50px;height:50px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.bolha{position:absolute;width:250px;height:250px;border-radius:50%;background:#fff;box-shadow:0 20px 50px rgba(23,21,28,.18);display:grid;place-items:center;text-align:center;font:700 30px/1.15 Inter;z-index:3}
+.bolha b{display:block;color:var(--tomate);font:800 52px/1 'Bricolage Grotesque'}
+.rodape{position:absolute;left:50%;transform:translateX(-50%);background:#fff;border-radius:999px;box-shadow:0 16px 40px rgba(23,21,28,.18);padding:26px 56px;display:flex;align-items:center;gap:22px;font:800 46px/1 'Bricolage Grotesque';white-space:nowrap;z-index:4}
+.rodape small{font:700 26px/1.2 Inter;color:var(--cinza)}
+.rodape i{width:2px;height:54px;background:#e5ded3}
+/* feed 1080x1350 */
+.feed .topo{top:60px}.feed h1{font-size:132px;margin-top:30px}.feed .sub{font-size:30px;margin-top:16px}
+.feed .lista{top:600px;width:430px}.feed .lista li{padding:17px 0;font-size:27px}.feed .ic{flex-basis:76px;height:76px}.feed .ic svg{width:42px;height:42px}
+.feed .cel{left:575px;top:515px;transform:rotate(4deg) scale(.78);transform-origin:0 0}
+.feed .bolha{left:455px;top:540px;width:190px;height:190px;font-size:23px}.feed .bolha b{font-size:40px}
+.feed .rodape{bottom:36px;padding:20px 44px;font-size:38px}
+/* story 1080x1920 */
+.story .topo{top:150px}
+.story .lista{top:880px;width:430px}.story .lista li{font-size:30px}
+.story .cel{left:585px;top:770px;transform:rotate(4deg) scale(.94);transform-origin:0 0}
+.story .bolha{left:440px;top:700px;width:230px;height:230px}
+.story .rodape{bottom:110px}
+</style></head><body>
+<div class="arte">
+  <div class="faixa f1"></div><div class="faixa f2"></div><div class="faixa f3"></div><div class="faixa f4"></div>
+  <div class="topo">
+    <div class="marca"><img src="icone.svg" alt="">Pedido <b>Já</b></div>
+    <h1>Pedido<br>na mesa</h1>
+    <p class="sub">QR Code, garçom e cozinha<br>no mesmo sistema do delivery</p>
+  </div>
+  <ul class="lista">
+    <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M14 21h7v-4M17 21v.01"/></svg></span>Cliente pede pelo QR Code da mesa</li>
+    <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>Chama o garçom com um toque</li>
+    <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 13.9A4 4 0 0 1 7 6a5 5 0 0 1 10 0 4 4 0 0 1 1 7.9V21H6zM6 17h12"/></svg></span>Pedido direto na tela da cozinha</li>
+    <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 2h14v20l-3-2-2 2-2-2-2 2-2-2-3 2zM9 7h6M9 11h6M9 15h4"/></svg></span>Conta com taxa de serviço e divisão</li>
+  </ul>
+  <div class="bolha"><div><b>Sem app</b>abre direto<br>no celular</div></div>
+  <div class="cel"><div class="ilha"></div><div class="tela"><iframe src="https://hamburgueriamadeira.pedidoja.com/"></iframe></div></div>
+  <div class="rodape">pedidoja.com<i></i><small>R$ 10 por dia<br>sem comissão</small></div>
+</div>
+<script>document.body.className=location.hash.slice(1)||'feed'</script>
+</body></html>
